@@ -2,6 +2,7 @@ package dev.kmmresources.plugin
 
 import org.gradle.api.Project
 import org.gradle.api.Plugin
+import dev.kmmresources.core.Library
 
 /**
  * A simple 'hello world' plugin.
@@ -12,6 +13,8 @@ class KmmResourcesPlugin: Plugin<Project> {
         project.tasks.register("greeting") { task ->
             task.doLast {
                 println("Hello from plugin 'tmp.greeting'")
+                val l = Library()
+                l.someLibraryMethod()
             }
         }
     }

@@ -15,6 +15,8 @@ repositories {
 }
 
 dependencies {
+    implementation(project(":core"))
+
     implementation(kotlin("stdlib", "1.4.20"))
 
     // Align versions of all Kotlin components
