@@ -6,16 +6,26 @@ plugins {
 gradlePlugin {
     plugins {
         create("simplePlugin") {
-            id = "org.samples.greeting"
-            implementationClass = "org.gradle.GreetingPlugin"
+            id = "dev.kmmresources.plugin"
+            implementationClass = "dev.kmmresources.plugin.KmmResourcesPlugin"
         }
     }
 }
 
-repositories {
-    jcenter()
+// Add a source set for the functional test suite
+val functionalTestSourceSet = sourceSets.create("functionalTest") {
 }
 
-dependencies {
-    implementation(kotlin("stdlib", "1.4.20"))
+gradlePlugin.testSourceSets(functionalTestSourceSet)
+configurations["functionalTestImplementation"].extendsFrom(configurations["testImplementation"])
+
+// Add a task to run the functional tests
+val functionalTest by tasks.registering(Test::class) {
+    testClassesDirs = functionalTestSourceSet.output.classesDirs
+    classpath = functionalTestSourceSet.runtimeClasspath
+}
+
+tasks.check {
+    // Run the functional tests as part of `check`
+    dependsOn(functionalTest)
 }

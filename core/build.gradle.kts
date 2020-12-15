@@ -1,8 +1,5 @@
 plugins {
-    // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
-    id("org.jetbrains.kotlin.jvm") version "1.3.72"
-
-    // Apply the java-library plugin for API and implementation separation.
+    kotlin("jvm") version "1.4.20"
     `java-library`
 }
 
@@ -20,6 +17,8 @@ dependencies {
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation("com.google.guava:guava:29.0-jre")
+
+    implementation(kotlin("stdlib", "1.4.20"))
 
     // Use the Kotlin test library.
     testImplementation("org.jetbrains.kotlin:kotlin-test")
