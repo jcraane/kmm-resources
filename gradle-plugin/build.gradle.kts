@@ -4,11 +4,9 @@ plugins {
 }
 
 gradlePlugin {
-    plugins {
-        create("simplePlugin") {
-            id = "dev.kmmresources.plugin"
-            implementationClass = "dev.kmmresources.plugin.KmmResourcesPlugin"
-        }
+    val greeting by plugins.creating {
+        id = "dev.kmmresources.plugin"
+        implementationClass = "dev.kmmresources.plugin.KmmResourcesPlugin"
     }
 }
 
