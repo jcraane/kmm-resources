@@ -10,7 +10,7 @@ import dev.kmmresources.core.Library
 class KmmResourcesPlugin: Plugin<Project> {
     override fun apply(project: Project) {
         // Register a task
-        project.tasks.register("greeting") { task ->
+        project.tasks.register("generate-kmm-resources") { task ->
             task.doLast {
                 println("Hello from plugin 'tmp.greeting'")
                 val l = Library()

@@ -5,6 +5,7 @@ package dev.kmmresources.core
 
 class Library {
     fun someLibraryMethod(): Boolean {
+        print("Seems that it works")
         return true
     }
 }
