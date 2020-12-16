@@ -20,7 +20,6 @@ dependencies {
     implementation(kotlin("stdlib", "1.4.20"))
 }
 
-// Example project demonstrating plugin usage
 kmmResourcesConfig {
     message.set("Hallo2")
 }
