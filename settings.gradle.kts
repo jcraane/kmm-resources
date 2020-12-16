@@ -6,7 +6,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = "kmm-resources"
+rootProject.name = "kmm-resources-composite-build"
 
 include("example-project")
 includeBuild("plugin-build")
