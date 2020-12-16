@@ -8,5 +8,5 @@ pluginManagement {
 
 rootProject.name = ("kmm-resources-plugin")
 
-include(":plugin")
 include(":core")
+include(":plugin")

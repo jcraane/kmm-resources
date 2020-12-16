@@ -1,11 +1,7 @@
 package dev.kmmresources.plugin
 
-import dev.kmmresources.core.LocalizationGenerator
 import org.gradle.api.Project
 import org.gradle.api.Plugin
-import org.gradle.api.tasks.Input
-import org.gradle.api.tasks.InputDirectory
-import java.io.File
 
 const val EXTENSION_NAME = "kmmResourcesConfig"
 const val TASK_NAME = "generateLocalizations"

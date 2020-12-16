@@ -8,7 +8,7 @@ dependencies {
 
     implementation("org.yaml:snakeyaml:1.27")
 
-    implementation(kotlin("stdlib", "1.4.20"))
+    implementation(kotlin("stdlib", "1.3.72"))
 
     // Use the Kotlin test library.
     testImplementation("org.jetbrains.kotlin:kotlin-test")

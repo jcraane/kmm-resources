@@ -1,5 +1,6 @@
 package dev.kmmresources.core;
 
+import dev.kmmresources.backport.onEachIndexed
 import dev.kmmresources.extensions.indentation
 
 data class CommonGenerated(
@@ -196,7 +197,7 @@ data class CommonGenerated(
 
                     localizationValue.numberOfArguments
                 }
-                .maxOrNull()
+                .max()
 
         flattened.add(flattenedLine)
         return numberOfArguments ?: 0

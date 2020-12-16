@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.4.20"
+    kotlin("jvm") version "1.3.72"
     `java-library`
     id("dev.kmmresources.localize")
 }
@@ -17,7 +17,7 @@ repositories {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation(kotlin("stdlib", "1.4.20"))
+    implementation(kotlin("stdlib", "1.3.72"))
 }
 
 kmmResourcesConfig {

@@ -5,8 +5,8 @@ plugins {
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk7"))
-    implementation(project(path = ":core", configuration = "default"))
+    implementation(kotlin("stdlib-jdk8"))
+//    implementation(project(path = ":core", configuration = "default"))
     implementation(gradleApi())
 
     testImplementation(TestingLib.JUNIT)
