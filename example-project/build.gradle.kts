@@ -21,7 +21,7 @@ dependencies {
 }
 
 kmmResourcesConfig {
-    message.set("Hallo2")
+    message.set("Hallo23")
 }
 
 val example = tasks["generateLocalizations"]

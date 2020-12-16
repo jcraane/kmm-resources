@@ -17,7 +17,7 @@ abstract class GenerateLocalizationsTask : DefaultTask() {
 
     init {
         description = "Generate localizations task"
-        println("INIT TASK")
+        println("INIT TASK2")
     }
 
     @TaskAction
