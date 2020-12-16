@@ -1,16 +1,16 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 
 plugins {
-    kotlin("jvm") version BuildPluginsVersion.KOTLIN apply false
-    id("com.gradle.plugin-publish") version BuildPluginsVersion.PLUGIN_PUBLISH apply false
-    id("io.gitlab.arturbosch.detekt") version BuildPluginsVersion.DETEKT
-    id("org.jlleitschuh.gradle.ktlint") version BuildPluginsVersion.KTLINT
-    id("com.github.ben-manes.versions") version BuildPluginsVersion.VERSIONS_PLUGIN
+    kotlin("jvm") version "1.3.72" apply false
+    id("com.gradle.plugin-publish") version "0.12.0" apply false
+    id("io.gitlab.arturbosch.detekt") version "1.14.2"
+    id("org.jlleitschuh.gradle.ktlint") version "9.4.1"
+    id("com.github.ben-manes.versions") version "0.33.0"
 }
 
 allprojects {
-    group = PluginCoordinates.GROUP
-    version = PluginCoordinates.VERSION
+    group = "dev.kmmresources.localize"
+    version = "1.0.0"
 
     repositories {
         google()
@@ -25,7 +25,7 @@ allprojects {
 
     ktlint {
         debug.set(false)
-        version.set(Versions.KTLINT)
+        version.set("0.39.0")
         verbose.set(true)
         android.set(false)
         outputToConsole.set(true)
