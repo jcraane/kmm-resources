@@ -3,3 +3,9 @@ general:
     ok:
       nl: "OK"
       en: "OK"
+    yes:
+      nl: "Ja"
+      en: "Yes"
+    no:
+      nl: "Nee"
+      en: "No"
