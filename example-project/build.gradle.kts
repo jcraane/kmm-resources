@@ -22,11 +22,9 @@ dependencies {
 
 // Example project demonstrating plugin usage
 kmmResourcesConfig {
-//    todo configure here
+    message.set("Hallo")
 }
 
-tasks {
-    named("generateLocalizations") {
-        dependsOn(get("build"))
-    }
-}
+val example = tasks["generateLocalizations"]
+tasks["build"].dependsOn(example)
+println("name = ${tasks["generateLocalizations"].name}")

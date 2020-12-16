@@ -1,22 +1,27 @@
 package dev.kmmresources.plugin
 
 import org.gradle.api.DefaultTask
+import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.TaskAction
+import org.gradle.api.tasks.options.Option
 import java.io.File
 
-open class GenerateLocalizationsTask : DefaultTask() {
-    @Input
-    lateinit var localizationFile: File
+abstract class GenerateLocalizationsTask : DefaultTask() {
+    /*@Input
+    lateinit var localizationFile: File*/
+
+    @get:Input
+    @get:Option(option = "message", description = "Printed to console")
+    abstract val message: Property<String>
 
     init {
         description = "Generate localizations task"
-
-        println("ININITNI")
+        println("INIT TASK")
     }
 
     @TaskAction
     fun localize() {
-        println("Here we do the actual work")
+        println("Message = ${message.get()}")
     }
 }

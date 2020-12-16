@@ -12,7 +12,7 @@ const val TASK_NAME = "generateLocalizations"
 
 class KmmResourcesPlugin: Plugin<Project> {
 
-    @InputDirectory
+    /*@InputDirectory
     lateinit var repoLocation: File
 
     @Input
@@ -25,7 +25,7 @@ class KmmResourcesPlugin: Plugin<Project> {
     lateinit var targetPackage: String
 
     @InputDirectory
-    lateinit var commonFolder: String
+    lateinit var commonFolder: String*/
 
     /**
      * Entry point of the plugin which Gradle calls when the plugin is applied to the project.
@@ -35,17 +35,8 @@ class KmmResourcesPlugin: Plugin<Project> {
         val extension = project.extensions.create(EXTENSION_NAME, KmmResourcesExtension::class.java, project)
 
         project.tasks.register(TASK_NAME, GenerateLocalizationsTask::class.java) {
-            println("INIT TASL")
-//            todo init tasl here from extensions
+            println("INIT TASK")
+            it.message.set(extension.message)
         }
-
-/*
-        project.tasks.register("generate-kmm-resources") { task ->
-            task.doLast {
-                val generator = LocalizationGenerator(localizationFile, repoLocation.parentFile, androidRPackage, targetPackage, commonFolder)
-                generator.generate()
-            }
-        }
-*/
     }
 }
