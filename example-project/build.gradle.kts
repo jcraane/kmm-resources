@@ -1,7 +1,7 @@
 plugins {
     kotlin("jvm") version "1.4.20"
     `java-library`
-    id("com.ncorti.kotlin.gradle.template.plugin")
+    id("dev.kmmresources.localize")
 }
 
 /*buildscript {
@@ -22,7 +22,7 @@ dependencies {
 
 // Example project demonstrating plugin usage
 kmmResourcesConfig {
-    message.set("Hallo")
+    message.set("Hallo2")
 }
 
 val example = tasks["generateLocalizations"]
