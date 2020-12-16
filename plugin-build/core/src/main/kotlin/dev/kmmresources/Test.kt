@@ -10,3 +10,7 @@ fun main() {
     val newDict2 = dict2 as Map<String, Map<String, Any>>
     println(newDict2["a"] is Map<String, Any>)
 }
+
+class MyTestClass {
+    fun greet() = "Hello"
+}
