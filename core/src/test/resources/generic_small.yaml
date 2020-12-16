@@ -1,0 +1,5 @@
+general:
+  button:
+    ok:
+      nl: "OK"
+      en: "OK"
