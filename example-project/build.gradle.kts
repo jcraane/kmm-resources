@@ -1,7 +1,7 @@
 plugins {
     kotlin("jvm")
     `java-library`
-    id("dev.kmmresources.localize")
+    id("com.capoax.kmmresources")
 }
 
 /*buildscript {

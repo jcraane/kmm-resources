@@ -3,7 +3,7 @@ plugins {
     kotlin("android")
     kotlin("android.extensions")
     kotlin("kapt")
-    id("dev.kmmresources.localize")
+    id("com.capoax.kmmresources")
 }
 
 buildscript {

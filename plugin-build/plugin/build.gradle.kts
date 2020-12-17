@@ -4,12 +4,17 @@ plugins {
     id("com.gradle.plugin-publish")
 }
 
+val junitVersion: String by project
+val website: String by project
+val vcsUrl: String by project
+val description: String by project
+
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
     implementation(project(path = ":core", configuration = "default"))
     implementation(gradleApi())
 
-    testImplementation("junit:junit:4.13.1")
+    testImplementation(junitVersion)
 }
 
 java {
@@ -19,8 +24,8 @@ java {
 
 gradlePlugin {
     plugins {
-        create("dev.kmmresources.localize") {
-            id = "dev.kmmresources.localize"
+        create("com.capoax.kmmresources") {
+            id = "com.capoax.kmmresources"
             implementationClass = "dev.kmmresources.plugin.KmmResourcesPlugin"
             version = "1.0.0"
         }
@@ -29,9 +34,9 @@ gradlePlugin {
 
 // Configuration Block for the Plugin Marker artifact on Plugin Central
 pluginBundle {
-    website = "https://github.com/cortinico/kotlin-gradle-plugin-template"
-    vcsUrl = "https://github.com/cortinico/kotlin-gradle-plugin-template"
-    description = "An empty Gradle plugin created from a template"
+    website = website
+    vcsUrl = vcsUrl
+    description = description
     tags = listOf(
         "plugin",
         "gradle",
@@ -41,7 +46,7 @@ pluginBundle {
 
 
     plugins {
-        getByName("dev.kmmresources.localize") {
+        getByName("com.capoax.kmmresources") {
             displayName = "An empty Gradle Plugin from a template"
         }
     }

@@ -9,7 +9,7 @@ plugins {
 }
 
 allprojects {
-    group = "dev.kmmresources.localize"
+    group = "com.capoax.kmmresources"
     version = "1.0.0"
 
     repositories {
