@@ -30,6 +30,6 @@ kmmResourcesConfig {
     output.set(project.projectDir.resolve("build").resolve("test_output"))
 }
 
-val example = tasks["generateLocalizations"]
-tasks["build"].dependsOn(example)
+val generateLocalizations = tasks["generateLocalizations"]
+tasks["build"].dependsOn(generateLocalizations)
 println("name = ${tasks["generateLocalizations"].name}")
