@@ -20,7 +20,6 @@ dependencies {
     implementation(kotlin("stdlib", "1.3.72"))
 }
 
-//todo input file is nog niet correct (moet relatief tov huidige project zijn
 kmmResourcesConfig {
     message.set("Hallo23")
     androidRPackage.set("com.localizations")
