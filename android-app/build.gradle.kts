@@ -3,6 +3,7 @@ plugins {
     kotlin("android")
     kotlin("android.extensions")
     kotlin("kapt")
+    id("dev.kmmresources.localize")
 }
 
 buildscript {
@@ -72,3 +73,10 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.2")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
 }
+
+kmmResourcesConfig {
+    message.set("Hello from Android")
+}
+
+val generateLocalizations = tasks["generateLocalizations"]
+tasks["preBuild"].dependsOn(generateLocalizations)
