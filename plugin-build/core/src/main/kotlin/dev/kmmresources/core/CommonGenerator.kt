@@ -14,9 +14,10 @@ data class CommonGenerated(
         private val flattened: MutableList<FlattenedLine> = mutableListOf<FlattenedLine>(),
 
         val iOSPlatformGenerator: PlatformGenerator = IOSPlatformGenerator(packageDeclaration),
-        val androidPlatformGenerator: PlatformGenerator = AndroidPlatformGenerator(packageDeclaration, androidRPackage)
+        val androidPlatformGenerator: PlatformGenerator = AndroidPlatformGenerator(packageDeclaration, androidRPackage),
+        val jvmPlatformGenerator: PlatformGenerator = JVMPlatformGenerator(packageDeclaration)
 ) {
-    val platformGenerators: List<PlatformGenerator> get() = listOf(iOSPlatformGenerator, androidPlatformGenerator)
+    val platformGenerators: List<PlatformGenerator> get() = listOf(iOSPlatformGenerator, androidPlatformGenerator, jvmPlatformGenerator)
 
     internal fun generate() {
         if (packageDeclaration != null) {

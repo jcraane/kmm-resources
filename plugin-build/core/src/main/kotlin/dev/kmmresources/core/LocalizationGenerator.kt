@@ -27,7 +27,7 @@ class LocalizationGenerator(
         writeAndroidResources(commonGenerated.androidPlatformGenerator.generated)
         writeIOS(commonGenerated.iOSPlatformGenerator.generatedActual)
         writeIOSResources(commonGenerated.iOSPlatformGenerator.generated)
-//        try writeJVM(contents: commonGenerator.jvmPlatformGenerator.generatedActual)
+        writeJVM(commonGenerated.jvmPlatformGenerator.generatedActual)
     }
 
     private fun writeCommon(contents: String) = contents.writeTo("common")
@@ -64,6 +64,8 @@ class LocalizationGenerator(
             println("Generated ${localizationFile.path}")
         }
     }
+
+    private fun writeJVM(contents: String) = contents.writeTo("jvm")
 
     private fun String.writeTo(target: String? = null) {
         var mainFolder = commonSrc.resolve(target?.let { "${it}Main" } ?: "main").resolve("kotlin")
