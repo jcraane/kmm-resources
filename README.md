@@ -68,3 +68,30 @@ expect fun L.MyView.Detail.Button.next(): String
 expect fun L.MyView.Detail.Button.previous(): String
 expect fun L.MyView.title(): String
 ```
+
+### Strings with arguments
+
+```yaml
+myView:
+  detail:
+    priceOfItem:
+      en: Item price of %1$s is %2$s
+      nl: Prijs is %2$s voor %1$s
+```
+
+Generates:
+
+```kotlin
+class L {
+  companion object {
+    val myView: MyView = MyView()
+  }
+  data class MyView(
+    val detail: Detail = Detail()) {
+    class Detail
+  }
+}
+
+
+expect fun L.MyView.Detail.priceOfItem(value0: String, value1: String): String
+```
