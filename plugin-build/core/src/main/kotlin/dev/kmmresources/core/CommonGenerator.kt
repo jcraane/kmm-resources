@@ -177,7 +177,7 @@ data class CommonGenerated(
             }
         }
 
-        return "TODO"
+        return ""
     }
 
     private fun generate(localizations: Map<String, String>, id: String, index: Int? = null): Int {

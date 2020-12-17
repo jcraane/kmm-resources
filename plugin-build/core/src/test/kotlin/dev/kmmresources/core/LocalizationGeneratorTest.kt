@@ -21,7 +21,7 @@ class LocalizationGeneratorTest {
         val input = LocalizationGeneratorTest::class.java.classLoader.getResourceAsStream("generic.yaml")
         val output = File("build").resolve("test_output")
         output.deleteRecursively()
-        val generator = LocalizationGenerator(input, output, "com.eneco.enecolib", "com.eneco.enecoapp.shared.common.localization", "common")
+        val generator = LocalizationGenerator(input, output, "com.eneco.enecolib", "nl", "com.eneco.enecoapp.shared.common.localization", "common")
         generator.generate()
     }
 }
