@@ -107,3 +107,41 @@ Usages:
 ```kotlin
 val string = L.myView.detail.priceOfItem("laptop", "€ 2,00") // Item price of laptop is € 2,00
 ```
+
+### List of strings
+
+```yaml
+myView:
+  myList:
+    -
+      en: Usage
+      nl: Gebruik
+    -
+      en: Features
+      nl: Kenmerken
+    -
+      en: Samples
+      nl: Voorbeelden
+```
+
+Generates:
+
+```kotlin
+class L {
+  companion object {
+    val myView: MyView = MyView()
+  }
+  class MyView
+}
+
+
+expect fun L.MyView.myList(): List<String>
+```
+
+Usage:
+
+```kotlin
+val strings = L.myView.myList()
+strings.size() // 3
+print(strings[0]) // Usage
+```
