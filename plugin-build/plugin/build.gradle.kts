@@ -14,7 +14,7 @@ dependencies {
     implementation(project(path = ":core", configuration = "default"))
     implementation(gradleApi())
 
-    testImplementation(junitVersion)
+//    testImplementation(junitVersion)
 }
 
 java {

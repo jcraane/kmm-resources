@@ -20,8 +20,15 @@ dependencies {
     implementation(kotlin("stdlib", "1.3.72"))
 }
 
+//todo input file is nog niet correct (moet relatief tov huidige project zijn
 kmmResourcesConfig {
     message.set("Hallo23")
+    androidRPackage.set("com.localizations")
+    sharedModuleName.set("shared")
+    packageName.set("com.example.project")
+    androidDefaultLanguage.set("nl")
+    input.set(File(project.projectDir.path, "generic_small.yaml"))
+    output.set(project.projectDir.resolve("build").resolve("test_output"))
 }
 
 val example = tasks["generateLocalizations"]

@@ -1,7 +1,5 @@
 package dev.kmmresources.core
 
-import dev.kmmresources.extensions.inputStream
-import org.intellij.lang.annotations.Language
 import org.junit.Test
 import java.io.File
 
@@ -21,7 +19,14 @@ class LocalizationGeneratorTest {
         val input = LocalizationGeneratorTest::class.java.classLoader.getResourceAsStream("generic.yaml")
         val output = File("build").resolve("test_output")
         output.deleteRecursively()
-        val generator = LocalizationGenerator(input, output, "com.eneco.enecolib", "nl", "com.eneco.enecoapp.shared.common.localization", "common")
+        val generator = LocalizationGenerator(
+            input = input,
+            output = output,
+            androidRPackage = "com.eneco.enecolib",
+            androidDefaultLanguage = "nl",
+            packageName = "com.eneco.enecoapp.shared.common.localization",
+            sharedModuleFolder = "common"
+        )
         generator.generate()
     }
 }

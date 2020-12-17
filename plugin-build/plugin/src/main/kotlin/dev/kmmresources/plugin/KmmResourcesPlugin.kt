@@ -27,12 +27,17 @@ class KmmResourcesPlugin: Plugin<Project> {
      * Entry point of the plugin which Gradle calls when the plugin is applied to the project.
      */
     override fun apply(project: Project) {
-        println("APPLIED HERE")
         val extension = project.extensions.create(EXTENSION_NAME, KmmResourcesExtension::class.java, project)
 
         project.tasks.register(TASK_NAME, GenerateLocalizationsTask::class.java) {
-            println("INIT TASK")
+            println("Initialize task")
             it.message.set(extension.message)
+            it.androidRPackage.set(extension.androidRPackage)
+            it.androidDefaultLanguage.set(extension.androidDefaultLanguage)
+            it.input.set(extension.input)
+            it.output.set(extension.output)
+            it.sharedModuleName.set(extension.sharedModuleName)
+            it.packageName.set(extension.packageName)
         }
     }
 }

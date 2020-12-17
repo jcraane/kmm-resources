@@ -3,14 +3,13 @@ package dev.kmmresources.core
 import dev.kmmresources.parser.YamlParser
 import java.io.File
 import java.io.InputStream
-import java.io.OutputStream
 import java.nio.file.Files
 
 class LocalizationGenerator(
     val input: InputStream,
     val output: File,
     val androidRPackage: String,
-    val androidBaseLanguage: String = "en",
+    val androidDefaultLanguage: String = "en",
     val packageName: String?,
     val sharedModuleFolder: String? = null) {
 
@@ -56,7 +55,7 @@ class LocalizationGenerator(
         val commonMainFolder = commonSrc.resolve("main").resolve("res")
         Files.createDirectories(commonMainFolder.toPath())
         contents.forEach { (lang, contents) ->
-            val valuesFolderName = if (lang == androidBaseLanguage) "values" else "values-${lang}"
+            val valuesFolderName = if (lang == androidDefaultLanguage) "values" else "values-${lang}"
             val langFolder = commonMainFolder.resolve(valuesFolderName)
             Files.createDirectories(langFolder.toPath())
             val localizationFile = langFolder.resolve("strings.xml")
