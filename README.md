@@ -69,6 +69,12 @@ expect fun L.MyView.Detail.Button.previous(): String
 expect fun L.MyView.title(): String
 ```
 
+Usages:
+
+```kotlin
+val string = L.general.button.ok()
+```
+
 ### Strings with arguments
 
 ```yaml
@@ -94,4 +100,10 @@ class L {
 
 
 expect fun L.MyView.Detail.priceOfItem(value0: String, value1: String): String
+```
+
+Usages:
+
+```kotlin
+val string = L.myView.detail.priceOfItem("laptop", "€ 2,00") // Item price of laptop is € 2,00
 ```
