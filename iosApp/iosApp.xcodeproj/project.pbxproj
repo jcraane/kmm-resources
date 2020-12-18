@@ -364,7 +364,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "echo \"CONFIGURATION_BUILD_DIR:\"\necho \"$CONFIGURATION_BUILD_DIR\"\n\ncd \"$SRCROOT/..\"\n./gradlew :android-app:packForXCode -PXCODE_CONFIGURATION=${CONFIGURATION} \\ -Pconfiguration.build.dir=\"$CONFIGURATION_BUILD_DIR\"\n";
+			shellScript = "echo \"CONFIGURATION_BUILD_DIR:\"\necho \"$CONFIGURATION_BUILD_DIR\"\n\ncd \"$SRCROOT/..\"\n./gradlew :android-app:packForXCode -PXCODE_CONFIGURATION=${CONFIGURATION} -Pconfiguration.build.dir=$CONFIGURATION_BUILD_DIR\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
