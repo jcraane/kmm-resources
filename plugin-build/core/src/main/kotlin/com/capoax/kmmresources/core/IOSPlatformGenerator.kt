@@ -4,6 +4,7 @@ data class IOSPlatformGenerator(
         private val packageDeclaration: String?,
         override val generated: MutableMap<String, String> = mutableMapOf(),
         override var generatedActual: String = """
+        |$packageDeclaration
         |import platform.Foundation.NSBundle
         |import platform.Foundation.NSString
         |import platform.Foundation.localizedStringWithFormat

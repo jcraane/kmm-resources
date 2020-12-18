@@ -1,3 +1,6 @@
+package com.example.project
+
+
 import platform.Foundation.NSBundle
 import platform.Foundation.NSString
 import platform.Foundation.localizedStringWithFormat

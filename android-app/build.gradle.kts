@@ -19,7 +19,7 @@ repositories {
 
 kotlin {
     android()
-    /*ios {
+    ios {
         binaries {
             framework {
                 baseName = "shared"
@@ -48,8 +48,7 @@ kotlin {
         }
         val iosMain by getting
         val iosTest by getting
-    }*/
-
+    }
 }
 
 android {
@@ -95,7 +94,7 @@ kmmResourcesConfig {
 val generateLocalizations = tasks["generateLocalizations"]
 tasks["preBuild"].dependsOn(generateLocalizations)
 
-/*val packForXcode by tasks.creating(Sync::class) {
+val packForXcode by tasks.creating(Sync::class) {
     group = "build"
     val mode = System.getenv("CONFIGURATION") ?: "DEBUG"
     val sdkName = System.getenv("SDK_NAME") ?: "iphonesimulator"
@@ -108,4 +107,4 @@ tasks["preBuild"].dependsOn(generateLocalizations)
     into(targetDir)
 }
 
-tasks.getByName("build").dependsOn(packForXcode)*/
+tasks.getByName("build").dependsOn(packForXcode)
