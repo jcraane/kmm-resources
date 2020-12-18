@@ -1,4 +1,4 @@
-package dev.kmmresources.core
+package com.capoax.kmmresources.core
 
 data class JVMPlatformGenerator(
         private val packageDeclaration: String?,

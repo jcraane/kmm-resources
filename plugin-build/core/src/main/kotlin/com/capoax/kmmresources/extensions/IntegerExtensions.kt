@@ -1,4 +1,4 @@
-package dev.kmmresources.extensions
+package com.capoax.kmmresources.extensions
 
 val Int.indentation: String get() {
     var indentation = ""

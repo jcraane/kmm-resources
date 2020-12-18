@@ -1,4 +1,4 @@
-package dev.kmmresources
+package com.capoax.kmmresources
 
 fun main() {
     val dict: Map<String, Any> = mapOf("a" to "A")

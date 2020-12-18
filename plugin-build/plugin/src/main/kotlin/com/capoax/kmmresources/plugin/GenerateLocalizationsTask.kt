@@ -1,6 +1,6 @@
 package com.capoax.kmmresources.plugin
 
-import dev.kmmresources.core.LocalizationGenerator
+import com.capoax.kmmresources.core.LocalizationGenerator
 import org.gradle.api.DefaultTask
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.*

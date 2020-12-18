@@ -1,4 +1,4 @@
-package dev.kmmresources.core
+package com.capoax.kmmresources.core
 
 interface PlatformGenerator {
     val generated: Map<String, String>

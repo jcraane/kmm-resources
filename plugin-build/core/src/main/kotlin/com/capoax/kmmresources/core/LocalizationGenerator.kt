@@ -1,6 +1,6 @@
-package dev.kmmresources.core
+package com.capoax.kmmresources.core
 
-import dev.kmmresources.parser.YamlParser
+import com.capoax.kmmresources.parser.YamlParser
 import java.io.File
 import java.io.InputStream
 import java.nio.file.Files

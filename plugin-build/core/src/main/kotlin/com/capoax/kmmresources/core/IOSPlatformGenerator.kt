@@ -1,4 +1,4 @@
-package dev.kmmresources.core
+package com.capoax.kmmresources.core
 
 data class IOSPlatformGenerator(
         private val packageDeclaration: String?,

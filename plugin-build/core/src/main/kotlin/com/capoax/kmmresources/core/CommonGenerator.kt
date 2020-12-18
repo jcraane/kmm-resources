@@ -1,7 +1,7 @@
-package dev.kmmresources.core;
+package com.capoax.kmmresources.core;
 
-import dev.kmmresources.backport.onEachIndexed
-import dev.kmmresources.extensions.indentation
+import com.capoax.kmmresources.backport.onEachIndexed
+import com.capoax.kmmresources.extensions.indentation
 
 data class CommonGenerated(
         private val dictionary: Map<String, Any>,
@@ -39,7 +39,7 @@ data class CommonGenerated(
 
         var body = ""
 
-        dictionary.toSortedMap().onEachIndexed { index, entry ->
+        val onEachIndexed = dictionary.toSortedMap().onEachIndexed { index, entry ->
             val childClassName = entry.key.capitalize()
             generated += "${2.indentation}val ${entry.key}: ${childClassName} = ${childClassName}()\n"
 
