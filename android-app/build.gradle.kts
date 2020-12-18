@@ -49,10 +49,8 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
 }
 
-//todo prefix toevoegen omdat anders strings.xml overschreven worden?
-/*
 kmmResourcesConfig {
-    androidRPackage.set("com.localizations")
+    androidRPackage.set("nl.jcraane.androidapp")
     packageName.set("com.example.project")
     androidDefaultLanguage.set("nl")
     input.set(File(project.projectDir.path, "generic.yaml"))
@@ -61,4 +59,3 @@ kmmResourcesConfig {
 
 val generateLocalizations = tasks["generateLocalizations"]
 tasks["preBuild"].dependsOn(generateLocalizations)
-*/
