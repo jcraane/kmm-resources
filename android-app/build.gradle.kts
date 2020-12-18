@@ -102,9 +102,7 @@ val packForXcode by tasks.creating(Sync::class) {
     val framework = kotlin.targets.getByName<KotlinNativeTarget>(targetName).binaries.getFramework(mode)
     inputs.property("mode", mode)
     dependsOn(framework.linkTask)
-//    val targetDir = File(buildDir, "xcode-frameworks")
     val targetDir = findProperty("configuration.build.dir")
-//            ?: throw RuntimeException("configuration.build.dir is not defined. Please pass this property from the XCode build.")
     if (targetDir == null) {
         System.err.println("configuration.build.dir is not defined. Please pass this property from the XCode build.")
     }
