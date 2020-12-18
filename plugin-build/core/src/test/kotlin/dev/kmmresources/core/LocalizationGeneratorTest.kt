@@ -22,7 +22,7 @@ class LocalizationGeneratorTest {
         val generator = LocalizationGenerator(
             input = input,
             output = output,
-            androidRPackage = "com.eneco.enecolib",
+            androidApplicationId = "com.eneco.enecolib",
             androidDefaultLanguage = "nl",
             packageName = "com.eneco.enecoapp.shared.common.localization",
             sharedModuleFolder = "common"

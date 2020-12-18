@@ -1,12 +1,10 @@
 package com.capoax.kmmresources.plugin
 
-import dev.kmmresources.MyTestClass
 import dev.kmmresources.core.LocalizationGenerator
 import org.gradle.api.DefaultTask
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.*
 import org.gradle.api.tasks.options.Option
-import java.io.ByteArrayInputStream
 import java.io.File
 import java.io.FileInputStream
 
@@ -20,8 +18,8 @@ abstract class GenerateLocalizationsTask : DefaultTask() {
     abstract val output: Property<File>
 
     @get:Input
-    @get:Option(option = "androidRPackage", description = "Package name of the Android R class for the generated localizations")
-    abstract val androidRPackage: Property<String>
+    @get:Option(option = "androidApplicationId", description = "The applicationId of the Android app. The applicationId is used as the package name for the R class in Android.")
+    abstract val androidApplicationId: Property<String>
 
     @get:Input
     @get:Option(option = "androidDefaultLanguage", description = "The default locale in Android, determines which language is in the values/strings.xml file")
@@ -48,7 +46,7 @@ abstract class GenerateLocalizationsTask : DefaultTask() {
         val generator = LocalizationGenerator(
             input = FileInputStream(input.get()),
             output = output.get(),
-            androidRPackage = androidRPackage.get(),
+            androidApplicationId = androidApplicationId.get(),
             androidDefaultLanguage = androidDefaultLanguage.get(),
             packageName = packageName.get(),
             androidStringsPrefix = androidStringsPrefix.get()

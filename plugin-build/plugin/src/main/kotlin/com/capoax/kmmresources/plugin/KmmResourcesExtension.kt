@@ -12,7 +12,7 @@ abstract class KmmResourcesExtension @Inject constructor(project: Project) {
 
     val output: Property<File> = objects.property(File::class.java)
 
-    val androidRPackage: Property<String> = objects.property(String::class.java)
+    val androidApplicationId: Property<String> = objects.property(String::class.java)
 
     val androidDefaultLanguage: Property<String> = objects.property(String::class.java)
 

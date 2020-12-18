@@ -14,7 +14,7 @@ class KmmResourcesPlugin: Plugin<Project> {
         val extension = project.extensions.create(EXTENSION_NAME, KmmResourcesExtension::class.java, project)
 
         project.tasks.register(TASK_NAME, GenerateLocalizationsTask::class.java) {
-            it.androidRPackage.set(extension.androidRPackage)
+            it.androidApplicationId.set(extension.androidApplicationId)
             it.androidDefaultLanguage.set(extension.androidDefaultLanguage)
             it.input.set(extension.input)
             it.output.set(extension.output)

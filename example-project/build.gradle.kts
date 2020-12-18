@@ -15,7 +15,7 @@ dependencies {
 }
 
 kmmResourcesConfig {
-    androidRPackage.set("com.localizations")
+    androidApplicationId.set("com.localizations")
     packageName.set("com.example.project")
     androidDefaultLanguage.set("nl")
     input.set(File(project.projectDir.path, "generic_small.yaml"))

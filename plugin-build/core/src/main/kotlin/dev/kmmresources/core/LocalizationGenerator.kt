@@ -8,7 +8,7 @@ import java.nio.file.Files
 class LocalizationGenerator(
     val input: InputStream,
     val output: File,
-    val androidRPackage: String,
+    val androidApplicationId: String,
     val androidDefaultLanguage: String = "en",
     val packageName: String?,
     val androidStringsPrefix: String = "generated_",
@@ -22,7 +22,7 @@ class LocalizationGenerator(
 
     fun generate() {
         val contents = YamlParser(input).parse()
-        val commonGenerated = CommonGenerator(contents, androidRPackage, packageName).generate()
+        val commonGenerated = CommonGenerator(contents, androidApplicationId, packageName).generate()
         writeCommon(commonGenerated.generated)
         writeAndroid(commonGenerated.androidPlatformGenerator.generatedActual)
         writeAndroidResources(commonGenerated.androidPlatformGenerator.generated)

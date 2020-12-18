@@ -50,7 +50,7 @@ dependencies {
 }
 
 kmmResourcesConfig {
-    androidRPackage.set("nl.jcraane.androidapp")
+    androidApplicationId.set("nl.jcraane.androidapp")
     packageName.set("com.example.project")
     androidDefaultLanguage.set("nl")
     input.set(File(project.projectDir.path, "generic.yaml"))
