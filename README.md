@@ -35,12 +35,12 @@ val string = L.general.button.ok()
 ```
 
 However this does not work in iOS since you cannot access companion variables directly. Instead you access the through the `Companion()`, like this:
-```
+```swift
 let string = L.Companion().general.button.ok()
 ```
 
 To make things a bit more convenient we suggest to add the following extension to your app:
-```
+```swift
 import shared
 
 public extension L {
@@ -52,7 +52,7 @@ public extension L {
 
 Now you can access strings as follows:
 
-```
+```swift
 let string = L.c.general.button.ok()
 ```
 
