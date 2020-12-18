@@ -8,8 +8,6 @@ import java.io.File
 abstract class KmmResourcesExtension @Inject constructor(project: Project) {
     private val objects = project.objects
 
-    val message: Property<String> = objects.property(String::class.java)
-
     val input: Property<File> = objects.property(File::class.java)
 
     val output: Property<File> = objects.property(File::class.java)

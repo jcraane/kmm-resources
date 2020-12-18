@@ -11,13 +11,6 @@ import java.io.File
 import java.io.FileInputStream
 
 abstract class GenerateLocalizationsTask : DefaultTask() {
-    /*@Input
-    lateinit var localizationFile: File*/
-
-    @get:Input
-    @get:Option(option = "message", description = "Printed to console")
-    abstract val message: Property<String>
-
     @get:InputFile
     @get:Option(option = "input", description = "Input file containing the localizations")
     abstract val input: Property<File>
@@ -49,9 +42,6 @@ abstract class GenerateLocalizationsTask : DefaultTask() {
 
     @TaskAction
     fun localize() {
-        println(MyTestClass().greet())
-        println("Message = ${message.get()}")
-        output.get().deleteRecursively()
         val generator = LocalizationGenerator(
             input = FileInputStream(input.get()),
             output = output.get(),
@@ -60,7 +50,6 @@ abstract class GenerateLocalizationsTask : DefaultTask() {
             packageName = packageName.get(),
             sharedModuleFolder = sharedModuleName.get()
         )
-        println("Generate now")
         generator.generate()
     }
 }
