@@ -12,12 +12,12 @@ TODO
 The generated localization files are compiled into a binary format using `plutil` and then copied into the shared FAT framework. To access those string during runtime from the shared module we need access to the Bunlde of the framework.
 
 Unfortunately at the time of writing we cannot access the framework Bundle correctly from Kotlin code. Therefore the following code is generated that sets the bundle to the (incorrect) main bundle.
-```
+```kotlin
 var localizationBundle = NSBundle.mainBundle()
 ```
 
 To reference the correct Bundle, you need to add the following code at launch time of your iOS app.
-```
+```swift
 import shared
 
 ...
