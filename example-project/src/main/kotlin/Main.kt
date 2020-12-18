@@ -1,3 +1,3 @@
 fun main(args: Array<String>) {
-    println("JHDSJKDHJSK")
+    println("dds")
 }

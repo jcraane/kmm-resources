@@ -18,7 +18,6 @@ class KmmResourcesPlugin: Plugin<Project> {
             it.androidDefaultLanguage.set(extension.androidDefaultLanguage)
             it.input.set(extension.input)
             it.output.set(extension.output)
-            it.sharedModuleName.set(extension.sharedModuleName)
             it.packageName.set(extension.packageName)
             it.androidStringsPrefix.set(extension.androidStringsPrefix)
         }

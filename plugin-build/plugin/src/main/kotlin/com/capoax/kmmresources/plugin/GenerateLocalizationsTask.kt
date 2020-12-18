@@ -32,10 +32,6 @@ abstract class GenerateLocalizationsTask : DefaultTask() {
     abstract val packageName: Property<String>
 
     @get:Input
-    @get:Option(option = "sharedModuleName", description = "The name of the KMM module with the shared code")
-    abstract val sharedModuleName: Property<String>
-
-    @get:Input
     @get:Option(option = "androidStringsPrefix", description = "Prefix which is prepended to the Android generated strings.xml resource files. This is to prevent existing strings.xml from overwriting. Defaults to 'generated_'")
     abstract val androidStringsPrefix: Property<String>
 
@@ -51,7 +47,6 @@ abstract class GenerateLocalizationsTask : DefaultTask() {
             androidRPackage = androidRPackage.get(),
             androidDefaultLanguage = androidDefaultLanguage.get(),
             packageName = packageName.get(),
-            sharedModuleFolder = sharedModuleName.get(),
             androidStringsPrefix = androidStringsPrefix.get()
         )
         generator.generate()

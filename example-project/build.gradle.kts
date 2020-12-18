@@ -16,7 +16,6 @@ dependencies {
 
 kmmResourcesConfig {
     androidRPackage.set("com.localizations")
-    sharedModuleName.set("shared")
     packageName.set("com.example.project")
     androidDefaultLanguage.set("nl")
     input.set(File(project.projectDir.path, "generic_small.yaml"))
