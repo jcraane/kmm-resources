@@ -21,5 +21,9 @@ abstract class KmmResourcesExtension @Inject constructor(project: Project) {
     val androidStringsPrefix: Property<String> = objects.property(String::class.java).apply {
         set("generated_")
     }
+
+    val srcFolder: Property<String> = objects.property(String::class.java).apply {
+        set("generated_")
+    }
 }
 

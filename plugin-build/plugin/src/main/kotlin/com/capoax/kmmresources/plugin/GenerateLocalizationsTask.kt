@@ -35,6 +35,10 @@ abstract class GenerateLocalizationsTask : DefaultTask() {
     @get:Option(option = "androidStringsPrefix", description = "Prefix which is prepended to the Android generated strings.xml resource files. This is to prevent existing strings.xml from overwriting. Defaults to 'generated_'")
     abstract val androidStringsPrefix: Property<String>
 
+    @get:Input
+    @get:Option(option = "srcFolder", description = "The source folder to generate the code to, defaults to 'src'")
+    abstract val srcFolder: Property<String>
+
     init {
         description = "Generate localizations task"
     }

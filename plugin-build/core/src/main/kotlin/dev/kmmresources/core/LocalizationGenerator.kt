@@ -11,10 +11,11 @@ class LocalizationGenerator(
     val androidRPackage: String,
     val androidDefaultLanguage: String = "en",
     val packageName: String?,
-    val androidStringsPrefix: String = "generated_") {
+    val androidStringsPrefix: String = "generated_",
+    val srcFolder: String = "src") {
 
     val commonSrc: File get() = {
-        val src = output.resolve("src")
+        val src = output.resolve(srcFolder)
         Files.createDirectories(src.toPath())
         src
     }()
