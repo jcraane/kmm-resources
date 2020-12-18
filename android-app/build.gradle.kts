@@ -6,22 +6,6 @@ plugins {
     id("com.capoax.kmmresources")
 }
 
-buildscript {
-    repositories {
-        google()
-        jcenter()
-        maven { setUrl("https://dl.bintray.com/kotlin/kotlin-eap") }
-        maven { setUrl("http://kotlin.bintray.com/kotlin-eap") }
-        maven { setUrl("http://kotlin.bintray.com/kotlin-dev") }
-        maven { setUrl("https://kotlin.bintray.com/kotlinx") }
-        maven { setUrl("https://dl.bintray.com/jetbrains/kotlin-native-dependencies") }
-    }
-    dependencies {
-        classpath("com.android.tools.build:gradle:4.1.1")
-        classpath(kotlin("gradle-plugin", version = "1.4.21"))
-    }
-}
-
 repositories {
     google()
     jcenter()
@@ -52,15 +36,6 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
-
-    /*compileOptions {
-        setSourceCompatibility(JavaVersion.VERSION_1_8)
-        setTargetCompatibility(JavaVersion.VERSION_1_8)
-    }
-
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }*/
 }
 
 dependencies {
@@ -73,6 +48,7 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.2")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
 }
+/*
 
 kmmResourcesConfig {
     message.set("Hello from Android")
@@ -80,3 +56,4 @@ kmmResourcesConfig {
 
 val generateLocalizations = tasks["generateLocalizations"]
 tasks["preBuild"].dependsOn(generateLocalizations)
+*/

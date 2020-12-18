@@ -9,7 +9,7 @@ pluginManagement {
 rootProject.name = "kmm-resources-composite-build"
 
 include("example-project")
-//include("android-app")
+include("android-app")
 includeBuild("plugin-build")
 
 
