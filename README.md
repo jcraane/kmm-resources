@@ -26,6 +26,36 @@ import shared
 KMMResourcesKt.localizationBundle = Bundle(for: L.self)
 ```
 
+#### Accessing strings
+
+The generated `L` class contains a companion object to be able to statically access the strings (see Samples). Therefore to right way to access a string from Kotlin code is as follows:
+
+```kotlin
+val string = L.general.button.ok()
+```
+
+However this does not work in iOS since you cannot access companion variables directly. Instead you access the through the `Companion()`, like this:
+```
+let string = L.Companion().general.button.ok()
+```
+
+To make things a bit more convenient we suggest to add the following extension to your app:
+```
+import shared
+
+public extension L {
+    static var c: L.Companion {
+        return L.Companion()
+    }
+}
+```
+
+Now you can access strings as follows:
+
+```
+let string = L.c.general.button.ok()
+```
+
 ## Samples
 
 ### Simple strings
