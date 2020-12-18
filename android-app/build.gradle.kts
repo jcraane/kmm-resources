@@ -104,9 +104,10 @@ val packForXcode by tasks.creating(Sync::class) {
     dependsOn(framework.linkTask)
 //    val targetDir = File(buildDir, "xcode-frameworks")
     val targetDir = findProperty("configuration.build.dir")
-            ?: throw RuntimeException("configuration.build.dir is not defined. Please pass this property from the XCode build.")
+//            ?: throw RuntimeException("configuration.build.dir is not defined. Please pass this property from the XCode build.")
+    if (targetDir == null) {
+        System.err.println("configuration.build.dir is not defined. Please pass this property from the XCode build.")
+    }
     from({ framework.outputDirectory })
     into(targetDir)
 }
-
-tasks.getByName("build").dependsOn(packForXcode)
