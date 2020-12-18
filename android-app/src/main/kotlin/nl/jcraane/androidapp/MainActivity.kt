@@ -11,7 +11,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        findViewById<TextView>(R.id.greeting).text = L.general.button.ok()
         findViewById<TextView>(R.id.greetingFromCommon).text = Greeter().greet()
     }
 }

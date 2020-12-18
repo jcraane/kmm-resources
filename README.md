@@ -7,6 +7,38 @@ Generator including Gradle plugin to generate KMM (Kotlin Multiplatform Mobile) 
 
 TODO
 
+### Android
+
+The generated localization files contains two parts:
+
+1. The generated strings.xml file for every locale
+2. An object L which is used to reference all resources statically during compile time (just as Android R class).
+
+The resources are prefixed bij l (lowercase L) and can be access like that in xml:
+
+```xml
+android:text="@string/l.greetings.hello"
+```
+
+To access the resources from code use the generated L class like in the following example:
+
+```kotlin
+L.greetings.hello()
+```
+
+The hello function is an expected function in commonMain which has an actual implementation for every target. In Android the actual function looksup the resources in the generated strings xml files.
+
+For this to work the localizationContext (an Android Context) needs to be initialized. This is typically done in the application like in the following example:
+
+```kotlin
+class MyApplication : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        localizationContext = this
+    }
+}
+```
+
 ### iOS
 
 The generated localization files are compiled into a binary format using `plutil` and then copied into the shared FAT framework. To access those string during runtime from the shared module we need access to the Bunlde of the framework.
