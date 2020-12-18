@@ -1,3 +1,7 @@
+greetings:
+  hello:
+    nl: Hallo vanuit common code
+    en: Hello from common code
 general:
   button:
     ok:
@@ -12,13 +16,13 @@ general:
   iDontKnow:
     nl: "Weet ik niet"
     en: >
-        I
+      I
 
-        don\'t know
+      don\'t know
   ampersand1:
-    nl: Nota \u0026 betalen
+    nl: Brood \u0026 boter
   ampersand2:
-    nl: Nota & betalen
+    nl: Brood & boter
   ampersand3:
     nl: "Nota \u0026 betalen"
   withParams:
@@ -35,7 +39,7 @@ unit:
   gas:
     nl: "m³"
     en: "m³"
-  electricity:
+  power:
     u3:
       nl: "kWh"
       en: "kWh"
@@ -45,248 +49,48 @@ unit:
     u9:
       nl: "GWh"
       en: "GWh"
-boilerComfort:
-  check:
-    title:
-      nl: "KetelComfort check"
-      en: "BoilerComfort check"
+exampleContent:
   pages:
-    hasOwnBoiler:
+    page1:
+      title:
+        nl: Titel pagina 1
+        en: Title page 1
       body:
-        nl: "Benieuwd of je huis geschikt is voor KetelComfort? Binnen een aantal vragen weet je het antwoord. Om te beginnen willen we graag weten of je jouw huis verwarmt met een cv-ketel."
-        en: "Wondering if your house is suitable for BoilerComfort? You know the answer within a few questions. To start with, we would like to know if you are heating your house with a central heating boiler."
-      questions:
-        hasBoiler:
-          title:
-            nl: "Verwarm jij je huis met een cv-ketel?"
-            en: "Do you heat your house with a central heating boiler?"
-          dialog:
-            title:
-              nl: "Helaas, KetelComfort is niet mogelijk voor jouw huis."
-              en: "Unfortunately, BoilerComfort is not possible for your house."
-            message:
-              nl: >
-                KetelComfort is niet mogelijk als je je huis verwarmt via een warmtebron zoals stadverwarming, een gaskachel of blokverwarming. KetelComfort is alleen geschikt voor individuele cv-ketels in woningen.
+        nl: Body pagina 1
+        en: Body page 1
+    page2:
+      title:
+        nl: Body pagina 1
+        en: Body page 1
+      body:
+        nl: >
+          - Dit is punt1
 
-                Wil je toch thuis slimmer met energie omgaan? Ontdek welke andere oplossingen we nog meer hebben voor een duurzaam huis.
-              en: >
-                KetelComfort is not possible if you heat your house via a heat source such as district heating, a gas heater or block heating. BoilerComfort is only suitable for individual central heating boilers in homes.
+          - Dit is punt 2
 
-                Do you want to use energy smarter at home? Discover what other solutions we have for a sustainable home.
-        ownBoiler:
-          title:
-            nl: "Is de ketel jouw eigendom?"
-            en: "Is the boiler your property?"
-          dialog:
-            title:
-              nl: "Helaas, KetelComfort is niet mogelijk voor jouw huis."
-              en: "Unfortunately, BoilerComfort is not possible for your house."
-            message:
-              nl: >
-                Als je de cv-ketel huurt, of als dit wordt geregeld via de woningbouwvereniging of verhuurder van je woning, dan is KetelComfort niet mogelijk. Informeer bij je verhuurder naar het onderhoudsabonnement van je cv-ketel.
+          - Dit is punt 3
+        en: >
+          - This is point 1
 
-                Wil je toch thuis slimmer met energie omgaan? Ontdek welke andere oplossingen we nog meer hebben voor een duurzaam huis.
-              en: >
-                If you rent the boiler, or if this is arranged through the housing association or landlord of your home, then BoilerComfort is not possible. Ask your landlord about the maintenance contract for your boiler.
+          - This is point 2
 
-                Do you want to use energy smarter at home? Discover what other solutions we have for a sustainable home.
-    boilerBrand:
-      questions:
-        boilerBrand:
-          title:
-            nl: "Welk merk ketel heb je?"
-            en: "Which brand of boiler do you have?"
-          body:
-            nl: "Zo weten onze monteurs welke materialen ze mee moeten nemen om je ketel te onderhouden of repareren."
-            en: "This way our technicians know which materials they need to take to maintain or repair your boiler."
-          dialogs:
-            dontKnowBrand:
-              title:
-                nl: "Ik weet mijn merk ketel niet"
-                en: "I don\\'t know my boiler brand"
-              message:
-                nl: >
-                  Waar kan ik het merk vinden?
-
-                  Bekijk je ketel om te achterhalen welk merk ketel je hebt. Dit staat meestal op de voorkant van je ketel.
-
-                  Mocht je er niet helemaal uitkomen, dan kun je altijd bellen met onze Klantenservice. We zijn dagelijks van 08.00 tot 21.00 bereikbaar op 088 - 8 955 955 (gebruikelijke belkosten).
-                en: >
-                  Where can I find the brand?
-
-                  View your boiler to find out which brand of boiler you have. This is usually on the front of your boiler.
-
-                  If you cannot figure it out completely, you can always call our Customer Service. We are available daily from 8 a.m. to 9 p.m. at 088 - 8 955 955 (usual calling costs).
-            notListed:
-              title:
-                nl: "Mijn ketelmerk staat er niet tussen"
-                en: "My boiler brand is not listed"
-              message:
-                nl: >
-                  Wij kunnen helaas niet voor alle soorten ketels de gewenste service leveren.
-
-                  Wil je een nieuwe ketel met onderhoudsabonnement via Eneco kopen of huren? Wij helpen je met een advies op maat. Zo ben je verzekerd van een energiezuinige topketel, die perfect past bij jou en je woning.
-                en: >
-                  Unfortunately, we cannot provide the desired service for all types of boilers.
-
-                  Do you want to buy or rent a new boiler with maintenance subscription through Eneco? We help you with customized advice. In this way you are assured of an energy-efficient top boiler that fits perfectly with you and your home.
-    boilerType:
-      questions:
-        boilerType:
-          title:
-            nl: "Is je ketel een van de volgende types?"
-            en: "Is your boiler one of the following types?"
-          dialog:
-            title:
-              nl: "Helaas, KetelComfort is niet mogelijk voor jouw huis."
-              en: "Unfortunately, BoilerComfort is not possible for your house."
-            message:
-              nl: >
-                Wij kunnen helaas niet voor alle type ketels de gewenste service leveren.
-
-                Wil je een nieuwe ketel met onderhoudsabonnement via Eneco kopen of huren? Wij helpen je met een advies op maat. Zo ben je verzekerd van een energiezuinige topketel, die perfect past bij jou en je woning.
-              en: >
-                Unfortunately, we cannot provide the desired service for all types of boilers.
-
-                Do you want to buy or rent a new boiler with a maintenance contract via Eneco? We help you with customized advice. In this way you are assured of an energy-efficient top boiler that fits perfectly with you and your home.
-    boilerAge:
-      questions:
-        boilerAge:
-          title:
-            nl: "Hoe oud is de ketel?"
-            en: "How old is the boiler?"
-          body:
-            nl: "Het bouwjaar van de ketel is vaak terug te vinden op een sticker of plaatje op de ketel."
-            en: "The year of manufacture of the boiler can often be found on a sticker or plate on the boiler."
-          answers:
-            youngerThan10:
-              nl: 1 t/m 9 jaar
-              en: 1 to 9 years
-            olderThan10:
-              nl: 10 jaar of ouder
-              en: 10 years or older
-    boilerAccessibile:
-      questions:
-        strairwell:
-          title:
-            nl: "Hangt de ketel in het trapgat?"
-            en: "Is the boiler hanging in the stairwell?"
-          dialog:
-            title:
-              nl: "Helaas, KetelComfort is niet mogelijk voor jouw huis."
-              en: "Unfortunately, BoilerComfort is not possible for your house."
-            message:
-              nl: >
-                De veiligheid van onze monteurs is belangrijk bij het onderhouden van een cv-ketel. Daarom nemen wij cv-ketels die alleen bereikbaar zijn via een trap of ladder niet in onderhoud.
-
-                Wil je toch thuis slimmer met energie omgaan? Ontdek welke andere oplossingen we nog meer hebben voor een duurzaam huis.
-              en: >
-                The safety of our engineers is important when maintaining a central heating boiler. That is why we do not maintain central heating boilers that are only accessible via stairs or ladder.
-
-                Do you want to use energy smarter at home? Discover what other solutions we have for a sustainable home.
-        space:
-          title:
-            nl: "Is de ruimte 1 meter rondom de ketel vrij?"
-            en: "Is the space 1 meter around the boiler free?"
-          dialog:
-            title:
-              nl: "Helaas, KetelComfort is niet mogelijk voor jouw huis."
-              en: "Unfortunately, BoilerComfort is not possible for your house."
-            message:
-              nl: >
-                Het is belangrijk voor de monteur om goed te kunnen werken. Zorg er daarom voor dat de monteur de ruimte heeft om je ketel goed te onderhouden.
-
-                Wanneer je de ruimte om je ketel vrijmaakt kun je KetelComfort afsluiten. Is dit niet mogelijk, maar wil je wél slimmer met energie omgaan? Ontdek welke andere oplossingen we hebben voor een duurzaam huis.
-              en: >
-                It is important for the technician to work properly. Therefore, ensure that the engineer has the space to properly maintain your boiler.
-
-                When you free up the space around your boiler you can close KetelComfort. Is this not possible, but do you want to use energy in a smarter way? Discover what other solutions we have for a sustainable home.
-        ladder:
-          title:
-            nl: "Kun je de ketel bereiken zonder ladder?"
-            en: "Can you reach the boiler without a ladder?"
-          dialog:
-            title:
-              nl: "Helaas, KetelComfort is niet mogelijk voor jouw huis."
-              en: "Unfortunately, BoilerComfort is not possible for your house."
-            message:
-              nl: >
-                De veiligheid van onze monteurs is belangrijk bij het onderhouden van een cv-ketel. Daarom nemen wij cv-ketels die alleen bereikbaar zijn via een trap of ladder niet in onderhoud.
-
-                Wil je toch thuis slimmer met energie omgaan? Ontdek welke andere oplossingen we nog meer hebben voor een duurzaam huis.
-              en: >
-                The safety of our engineers is important when maintaining a central heating boiler. That is why we do not maintain central heating boilers that are only accessible via stairs or ladder.
-
-                Do you want to use energy smarter at home? Discover what other solutions we have for a sustainable home.
-    asbestos:
-      questions:
-        asbestos:
-          title:
-            nl: Hangt je ketel in een ruimte zonder asbest?
-            en: Is your boiler hanging in an area without asbestos?
-          body:
-            nl: De monteur moet in een veilige, asbestvrije ruimte kunnen werken.
-            en: The engineer must be able to work in a safe, asbestos-free area.
-          dialog:
-            title:
-              nl: "Helaas, KetelComfort is niet mogelijk voor jouw huis."
-              en: "Unfortunately, BoilerComfort is not possible for your house."
-            message:
-              nl: >
-                Als er asbest zit in de ruimte waar je cv-ketel hangt, is KetelComfort niet mogelijk. De monteur moet namelijk een veilige werkomgeving hebben. Als je een asbest-vrij verklaring hebt van een gecertificeerd bedrijf, dan nemen we je aanvraag voor KetelComfort graag opnieuw in behandeling.
-
-                Wil je toch thuis slimmer met energie omgaan? Ontdek welke andere oplossingen we nog meer hebben voor een duurzaam huis.
-              en: >
-                If there is asbestos in the room where your boiler is installed, KetelComfort is not possible. The engineer must have a safe working environment. If you have an asbestos-free statement from a certified company, we will gladly re-examine your application for KetelComfort.
-
-                Do you want to use energy smarter at home? Discover what other solutions we have for a sustainable home.
-          doubts:
-            title:
-              nl: Ik twijfel over asbest in de ruimte
-              en: I have doubts about asbestos in the room
-            dialog:
-              title:
-                nl: Asbest Herkennen
-                en: Recognize asbestos
-              message:
-                nl: >
-                  - Is jouw huis in of na 1994 gebouwd? Dan is er geen asbest gebruikt.
-
-                  - Heb je vloerzeil of vinyltegels die na 1985 nieuw zijn gelegd? Dan zit daar geen asbest in.
-
-                  - Sinds 1993 mag er geen asbest meer verkocht worden. Zijn in jouw huis na 1993 nieuwe materialen aangebracht (bijvoorbeeld platen, buizen of isolatiemateriaal), dan bevatten die geen asbest.
-
-                  Mocht je er niet helemaal uitkomen, dan kun je altijd bellen met onze Klantenservice om je contract af te sluiten. We zijn dagelijks van 08.00 tot 21.00 bereikbaar op 088 - 8 955 955 (gebruikelijke belkosten).
-                en: >
-                  - Was your house built in or after 1994? Then no asbestos is used.
-
-                  - Do you have floor covering or vinyl tiles that were laid new after 1985? Then there is no asbestos in it.
-
-                  - Since 1993, asbestos may no longer be sold. If new materials have been installed in your house after 1993 (for example plates, pipes or insulation material), they will not contain asbestos.
-
-                  If you cannot figure it out completely, you can always call our Customer Service to conclude your contract. We are available daily from 8 a.m. to 9 p.m. at 088 - 8 955 955 (usual calling costs).
-  chooseSubscription:
-    checkmarks:
-      -
-        nl: 24/7 telefonisch bereikbaar bij storingen
-        en: Available 24/7 by telephone in case of malfunctions
-      -
-        nl: Voorrijkosten en arbeidsloon inbegrepen
-        en: Travel costs and labor included
-    maintenanceInterval:
-      header:
-        nl: Hoe vaak onderhoud
-        en: How often maintenance
-    materialCosts:
-      header:
-        nl: Materiaalkosten
-        en: Material costs
-breakdown:
+          - This is point 3
+    page3:
+      title:
+        nl: Titel pagina 3
+        en: Title page 3
+      body:
+        checkmarks:
+          - nl: 24/7 telefonisch bereikbaar bij storingen
+            en: Available 24/7 by telephone in case of malfunctions
+          - nl: Voorrijkosten en arbeidsloon inbegrepen
+            en: Travel costs and labor included
+listofobjects:
   categories:
-    standby:
+    samplecategory:
       detailedDescription:
-        nl: Beschrijving van standby
-        en: Description of standby
+        nl: Beschrijving van categorie
+        en: Description of category
       content:
         - 0:
             title:

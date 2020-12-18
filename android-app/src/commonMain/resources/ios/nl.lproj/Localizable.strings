@@ -1,75 +1,16 @@
 // Generated nl localization file
-"l.boilerComfort.check.title" = "KetelComfort check";
-"l.boilerComfort.chooseSubscription.checkmarks0" = "24/7 telefonisch bereikbaar bij storingen";
-"l.boilerComfort.chooseSubscription.checkmarks1" = "Voorrijkosten en arbeidsloon inbegrepen";
-"l.boilerComfort.chooseSubscription.maintenanceInterval.header" = "Hoe vaak onderhoud";
-"l.boilerComfort.chooseSubscription.materialCosts.header" = "Materiaalkosten";
-"l.boilerComfort.pages.asbestos.questions.asbestos.body" = "De monteur moet in een veilige, asbestvrije ruimte kunnen werken.";
-"l.boilerComfort.pages.asbestos.questions.asbestos.dialog.message" = "Als er asbest zit in de ruimte waar je cv-ketel hangt, is KetelComfort niet mogelijk. De monteur moet namelijk een veilige werkomgeving hebben. Als je een asbest-vrij verklaring hebt van een gecertificeerd bedrijf, dan nemen we je aanvraag voor KetelComfort graag opnieuw in behandeling.
-Wil je toch thuis slimmer met energie omgaan? Ontdek welke andere oplossingen we nog meer hebben voor een duurzaam huis.
+"l.exampleContent.pages.page1.body" = "Body pagina 1";
+"l.exampleContent.pages.page1.title" = "Titel pagina 1";
+"l.exampleContent.pages.page2.body" = "- Dit is punt1
+- Dit is punt 2
+- Dit is punt 3
 ";
-"l.boilerComfort.pages.asbestos.questions.asbestos.dialog.title" = "Helaas, KetelComfort is niet mogelijk voor jouw huis.";
-"l.boilerComfort.pages.asbestos.questions.asbestos.doubts.dialog.message" = "- Is jouw huis in of na 1994 gebouwd? Dan is er geen asbest gebruikt.
-- Heb je vloerzeil of vinyltegels die na 1985 nieuw zijn gelegd? Dan zit daar geen asbest in.
-- Sinds 1993 mag er geen asbest meer verkocht worden. Zijn in jouw huis na 1993 nieuwe materialen aangebracht (bijvoorbeeld platen, buizen of isolatiemateriaal), dan bevatten die geen asbest.
-Mocht je er niet helemaal uitkomen, dan kun je altijd bellen met onze Klantenservice om je contract af te sluiten. We zijn dagelijks van 08.00 tot 21.00 bereikbaar op 088 - 8 955 955 (gebruikelijke belkosten).
-";
-"l.boilerComfort.pages.asbestos.questions.asbestos.doubts.dialog.title" = "Asbest Herkennen";
-"l.boilerComfort.pages.asbestos.questions.asbestos.doubts.title" = "Ik twijfel over asbest in de ruimte";
-"l.boilerComfort.pages.asbestos.questions.asbestos.title" = "Hangt je ketel in een ruimte zonder asbest?";
-"l.boilerComfort.pages.boilerAccessibile.questions.ladder.dialog.message" = "De veiligheid van onze monteurs is belangrijk bij het onderhouden van een cv-ketel. Daarom nemen wij cv-ketels die alleen bereikbaar zijn via een trap of ladder niet in onderhoud.
-Wil je toch thuis slimmer met energie omgaan? Ontdek welke andere oplossingen we nog meer hebben voor een duurzaam huis.
-";
-"l.boilerComfort.pages.boilerAccessibile.questions.ladder.dialog.title" = "Helaas, KetelComfort is niet mogelijk voor jouw huis.";
-"l.boilerComfort.pages.boilerAccessibile.questions.ladder.title" = "Kun je de ketel bereiken zonder ladder?";
-"l.boilerComfort.pages.boilerAccessibile.questions.space.dialog.message" = "Het is belangrijk voor de monteur om goed te kunnen werken. Zorg er daarom voor dat de monteur de ruimte heeft om je ketel goed te onderhouden.
-Wanneer je de ruimte om je ketel vrijmaakt kun je KetelComfort afsluiten. Is dit niet mogelijk, maar wil je wél slimmer met energie omgaan? Ontdek welke andere oplossingen we hebben voor een duurzaam huis.
-";
-"l.boilerComfort.pages.boilerAccessibile.questions.space.dialog.title" = "Helaas, KetelComfort is niet mogelijk voor jouw huis.";
-"l.boilerComfort.pages.boilerAccessibile.questions.space.title" = "Is de ruimte 1 meter rondom de ketel vrij?";
-"l.boilerComfort.pages.boilerAccessibile.questions.strairwell.dialog.message" = "De veiligheid van onze monteurs is belangrijk bij het onderhouden van een cv-ketel. Daarom nemen wij cv-ketels die alleen bereikbaar zijn via een trap of ladder niet in onderhoud.
-Wil je toch thuis slimmer met energie omgaan? Ontdek welke andere oplossingen we nog meer hebben voor een duurzaam huis.
-";
-"l.boilerComfort.pages.boilerAccessibile.questions.strairwell.dialog.title" = "Helaas, KetelComfort is niet mogelijk voor jouw huis.";
-"l.boilerComfort.pages.boilerAccessibile.questions.strairwell.title" = "Hangt de ketel in het trapgat?";
-"l.boilerComfort.pages.boilerAge.questions.boilerAge.answers.olderThan10" = "10 jaar of ouder";
-"l.boilerComfort.pages.boilerAge.questions.boilerAge.answers.youngerThan10" = "1 t/m 9 jaar";
-"l.boilerComfort.pages.boilerAge.questions.boilerAge.body" = "Het bouwjaar van de ketel is vaak terug te vinden op een sticker of plaatje op de ketel.";
-"l.boilerComfort.pages.boilerAge.questions.boilerAge.title" = "Hoe oud is de ketel?";
-"l.boilerComfort.pages.boilerBrand.questions.boilerBrand.body" = "Zo weten onze monteurs welke materialen ze mee moeten nemen om je ketel te onderhouden of repareren.";
-"l.boilerComfort.pages.boilerBrand.questions.boilerBrand.dialogs.dontKnowBrand.message" = "Waar kan ik het merk vinden?
-Bekijk je ketel om te achterhalen welk merk ketel je hebt. Dit staat meestal op de voorkant van je ketel.
-Mocht je er niet helemaal uitkomen, dan kun je altijd bellen met onze Klantenservice. We zijn dagelijks van 08.00 tot 21.00 bereikbaar op 088 - 8 955 955 (gebruikelijke belkosten).
-";
-"l.boilerComfort.pages.boilerBrand.questions.boilerBrand.dialogs.dontKnowBrand.title" = "Ik weet mijn merk ketel niet";
-"l.boilerComfort.pages.boilerBrand.questions.boilerBrand.dialogs.notListed.message" = "Wij kunnen helaas niet voor alle soorten ketels de gewenste service leveren.
-Wil je een nieuwe ketel met onderhoudsabonnement via Eneco kopen of huren? Wij helpen je met een advies op maat. Zo ben je verzekerd van een energiezuinige topketel, die perfect past bij jou en je woning.
-";
-"l.boilerComfort.pages.boilerBrand.questions.boilerBrand.dialogs.notListed.title" = "Mijn ketelmerk staat er niet tussen";
-"l.boilerComfort.pages.boilerBrand.questions.boilerBrand.title" = "Welk merk ketel heb je?";
-"l.boilerComfort.pages.boilerType.questions.boilerType.dialog.message" = "Wij kunnen helaas niet voor alle type ketels de gewenste service leveren.
-Wil je een nieuwe ketel met onderhoudsabonnement via Eneco kopen of huren? Wij helpen je met een advies op maat. Zo ben je verzekerd van een energiezuinige topketel, die perfect past bij jou en je woning.
-";
-"l.boilerComfort.pages.boilerType.questions.boilerType.dialog.title" = "Helaas, KetelComfort is niet mogelijk voor jouw huis.";
-"l.boilerComfort.pages.boilerType.questions.boilerType.title" = "Is je ketel een van de volgende types?";
-"l.boilerComfort.pages.hasOwnBoiler.body" = "Benieuwd of je huis geschikt is voor KetelComfort? Binnen een aantal vragen weet je het antwoord. Om te beginnen willen we graag weten of je jouw huis verwarmt met een cv-ketel.";
-"l.boilerComfort.pages.hasOwnBoiler.questions.hasBoiler.dialog.message" = "KetelComfort is niet mogelijk als je je huis verwarmt via een warmtebron zoals stadverwarming, een gaskachel of blokverwarming. KetelComfort is alleen geschikt voor individuele cv-ketels in woningen.
-Wil je toch thuis slimmer met energie omgaan? Ontdek welke andere oplossingen we nog meer hebben voor een duurzaam huis.
-";
-"l.boilerComfort.pages.hasOwnBoiler.questions.hasBoiler.dialog.title" = "Helaas, KetelComfort is niet mogelijk voor jouw huis.";
-"l.boilerComfort.pages.hasOwnBoiler.questions.hasBoiler.title" = "Verwarm jij je huis met een cv-ketel?";
-"l.boilerComfort.pages.hasOwnBoiler.questions.ownBoiler.dialog.message" = "Als je de cv-ketel huurt, of als dit wordt geregeld via de woningbouwvereniging of verhuurder van je woning, dan is KetelComfort niet mogelijk. Informeer bij je verhuurder naar het onderhoudsabonnement van je cv-ketel.
-Wil je toch thuis slimmer met energie omgaan? Ontdek welke andere oplossingen we nog meer hebben voor een duurzaam huis.
-";
-"l.boilerComfort.pages.hasOwnBoiler.questions.ownBoiler.dialog.title" = "Helaas, KetelComfort is niet mogelijk voor jouw huis.";
-"l.boilerComfort.pages.hasOwnBoiler.questions.ownBoiler.title" = "Is de ketel jouw eigendom?";
-"l.breakdown.categories.standby.content.0.body" = "Dit is de body1";
-"l.breakdown.categories.standby.content.0.title" = "Dit is de titel1";
-"l.breakdown.categories.standby.content.1.body" = "Dit is de body2";
-"l.breakdown.categories.standby.content.1.title" = "Dit is de titel2";
-"l.breakdown.categories.standby.detailedDescription" = "Beschrijving van standby";
-"l.general.ampersand1" = "Nota \u0026 betalen";
-"l.general.ampersand2" = "Nota & betalen";
+"l.exampleContent.pages.page2.title" = "Body pagina 1";
+"l.exampleContent.pages.page3.body.checkmarks0" = "24/7 telefonisch bereikbaar bij storingen";
+"l.exampleContent.pages.page3.body.checkmarks1" = "Voorrijkosten en arbeidsloon inbegrepen";
+"l.exampleContent.pages.page3.title" = "Titel pagina 3";
+"l.general.ampersand1" = "Brood \u0026 boter";
+"l.general.ampersand2" = "Brood & boter";
 "l.general.ampersand3" = "Nota & betalen";
 "l.general.button.ok" = "OK";
 "l.general.error.invalidField" = "Ongeldige waarde";
@@ -79,7 +20,12 @@ Wil je toch thuis slimmer met energie omgaan? Ontdek welke andere oplossingen we
 "l.general.withParams" = "Een %1$@ tekst met een %2$@";
 "l.general.yes" = "Ja";
 "l.greetings.hello" = "Hallo vanuit common code";
-"l.unit.electricity.u3" = "kWh";
-"l.unit.electricity.u6" = "MWh";
-"l.unit.electricity.u9" = "GWh";
+"l.listofobjects.categories.samplecategory.content.0.body" = "Dit is de body1";
+"l.listofobjects.categories.samplecategory.content.0.title" = "Dit is de titel1";
+"l.listofobjects.categories.samplecategory.content.1.body" = "Dit is de body2";
+"l.listofobjects.categories.samplecategory.content.1.title" = "Dit is de titel2";
+"l.listofobjects.categories.samplecategory.detailedDescription" = "Beschrijving van categorie";
 "l.unit.gas" = "m³";
+"l.unit.power.u3" = "kWh";
+"l.unit.power.u6" = "MWh";
+"l.unit.power.u9" = "GWh";
