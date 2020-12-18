@@ -7,7 +7,54 @@ Generator including Gradle plugin to generate KMM (Kotlin Multiplatform Mobile) 
 
 TODO
 
+### iOS
 
+The generated localization files are compiled into a binary format using `plutil` and then copied into the shared FAT framework. To access those string during runtime from the shared module we need access to the Bunlde of the framework.
+
+Unfortunately at the time of writing we cannot access the framework Bundle correctly from Kotlin code. Therefore the following code is generated that sets the bundle to the (incorrect) main bundle.
+```kotlin
+var localizationBundle = NSBundle.mainBundle()
+```
+
+To reference the correct Bundle, you need to add the following code at launch time of your iOS app.
+```swift
+import shared
+
+...
+
+// put this in `application(:didFinishLaunchingWithOptions:)` or in the init of your SwiftUI app
+KMMResourcesKt.localizationBundle = Bundle(for: L.self)
+```
+
+#### Accessing strings
+
+The generated `L` class contains a companion object to be able to statically access the strings (see Samples). Therefore to right way to access a string from Kotlin code is as follows:
+
+```kotlin
+val string = L.general.button.ok()
+```
+
+However this does not work in iOS since you cannot access companion variables directly. Instead you access the through the `Companion()`, like this:
+```swift
+let string = L.Companion().general.button.ok()
+```
+
+To make things a bit more convenient we suggest to add the following extension to your app:
+```swift
+import shared
+
+public extension L {
+    static var c: L.Companion {
+        return L.Companion()
+    }
+}
+```
+
+Now you can access strings as follows:
+
+```swift
+let string = L.c.general.button.ok()
+```
 
 ## Samples
 
