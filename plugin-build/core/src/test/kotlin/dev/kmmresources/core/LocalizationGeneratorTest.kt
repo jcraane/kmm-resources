@@ -1,5 +1,6 @@
 package dev.kmmresources.core
 
+import com.capoax.kmmresources.core.LocalizationGenerator
 import org.junit.Test
 import java.io.File
 
@@ -22,10 +23,9 @@ class LocalizationGeneratorTest {
         val generator = LocalizationGenerator(
             input = input,
             output = output,
-            androidApplicationId = "com.eneco.enecolib",
+            androidApplicationId = "com.example",
             androidDefaultLanguage = "nl",
-            packageName = "com.eneco.enecoapp.shared.common.localization",
-            sharedModuleFolder = "common"
+            packageName = "com.example.common.localization"
         )
         generator.generate()
     }
