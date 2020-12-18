@@ -10,7 +10,7 @@ plugins {
 
 allprojects {
     group = "com.capoax.kmmresources"
-    version = "1.0.0"
+    version = "1.0.0-alpha01"
 
     repositories {
         google()
