@@ -4,7 +4,18 @@ data class AndroidPlatformGenerator(
         private val packageDeclaration: String?,
         private val androidRPackage: String,
         override val generated: MutableMap<String, String> = mutableMapOf(),
-        override var generatedActual: String = packageDeclaration?.let { "${it}import ${androidRPackage}.R\n\n" } ?: ""
+        override var generatedActual: String = packageDeclaration?.let {
+            """
+${it}import ${androidRPackage}.R
+import android.content.Context
+
+var localizationContext: Context? = null
+
+
+"""
+                .trimIndent()
+        } ?: ""
+
 ): PlatformGenerator {
 
     override fun generateLocalization(key: String, value: LocalizationValue, language: String) {
@@ -33,7 +44,7 @@ data class AndroidPlatformGenerator(
         val id = id(path, name)
         val varArgs = (0 until numberOfArguments).map { ", value${it}" }.joinToString("")
 
-        generatedActual += "actual fun ${function}: String = ApplicationContext.context?.getString(R.string.${id}${varArgs}) ?: \"\"\n"
+        generatedActual += "actual fun ${function}: String = localizationContext?.getString(R.string.${id}${varArgs}) ?: \"\"\n"
     }
 
     override fun generateActualList(function: String, path: List<String>, name: String, values: List<Map<String, String>>) {
@@ -44,7 +55,7 @@ data class AndroidPlatformGenerator(
             if (index > 0) {
                 generatedActual += ",\n"
             }
-            generatedActual += "  ApplicationContext.context?.getString(R.string.${id}${index}) ?: \"\""
+            generatedActual += "  localizationContext?.getString(R.string.${id}${index}) ?: \"\""
         }
         generatedActual += "\n)\n"
     }
@@ -55,7 +66,7 @@ data class AndroidPlatformGenerator(
         generatedActual +=
                 """
                 |actual fun ${functionName}: String {
-                |   val context = ApplicationContext.context
+                |   val context = localizationContext
                 |   return context?.getString(context.resources.getIdentifier("${id}", "string", context.packageName)) ?: ""
                 |}
                 |

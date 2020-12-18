@@ -1,0 +1,84 @@
+// Generated en localization file
+"l.boilerComfort.check.title" = "BoilerComfort check";
+"l.boilerComfort.chooseSubscription.checkmarks0" = "Available 24/7 by telephone in case of malfunctions";
+"l.boilerComfort.chooseSubscription.checkmarks1" = "Travel costs and labor included";
+"l.boilerComfort.chooseSubscription.maintenanceInterval.header" = "How often maintenance";
+"l.boilerComfort.chooseSubscription.materialCosts.header" = "Material costs";
+"l.boilerComfort.pages.asbestos.questions.asbestos.body" = "The engineer must be able to work in a safe, asbestos-free area.";
+"l.boilerComfort.pages.asbestos.questions.asbestos.dialog.message" = "If there is asbestos in the room where your boiler is installed, KetelComfort is not possible. The engineer must have a safe working environment. If you have an asbestos-free statement from a certified company, we will gladly re-examine your application for KetelComfort.
+Do you want to use energy smarter at home? Discover what other solutions we have for a sustainable home.
+";
+"l.boilerComfort.pages.asbestos.questions.asbestos.dialog.title" = "Unfortunately, BoilerComfort is not possible for your house.";
+"l.boilerComfort.pages.asbestos.questions.asbestos.doubts.dialog.message" = "- Was your house built in or after 1994? Then no asbestos is used.
+- Do you have floor covering or vinyl tiles that were laid new after 1985? Then there is no asbestos in it.
+- Since 1993, asbestos may no longer be sold. If new materials have been installed in your house after 1993 (for example plates, pipes or insulation material), they will not contain asbestos.
+If you cannot figure it out completely, you can always call our Customer Service to conclude your contract. We are available daily from 8 a.m. to 9 p.m. at 088 - 8 955 955 (usual calling costs).
+";
+"l.boilerComfort.pages.asbestos.questions.asbestos.doubts.dialog.title" = "Recognize asbestos";
+"l.boilerComfort.pages.asbestos.questions.asbestos.doubts.title" = "I have doubts about asbestos in the room";
+"l.boilerComfort.pages.asbestos.questions.asbestos.title" = "Is your boiler hanging in an area without asbestos?";
+"l.boilerComfort.pages.boilerAccessibile.questions.ladder.dialog.message" = "The safety of our engineers is important when maintaining a central heating boiler. That is why we do not maintain central heating boilers that are only accessible via stairs or ladder.
+Do you want to use energy smarter at home? Discover what other solutions we have for a sustainable home.
+";
+"l.boilerComfort.pages.boilerAccessibile.questions.ladder.dialog.title" = "Unfortunately, BoilerComfort is not possible for your house.";
+"l.boilerComfort.pages.boilerAccessibile.questions.ladder.title" = "Can you reach the boiler without a ladder?";
+"l.boilerComfort.pages.boilerAccessibile.questions.space.dialog.message" = "It is important for the technician to work properly. Therefore, ensure that the engineer has the space to properly maintain your boiler.
+When you free up the space around your boiler you can close KetelComfort. Is this not possible, but do you want to use energy in a smarter way? Discover what other solutions we have for a sustainable home.
+";
+"l.boilerComfort.pages.boilerAccessibile.questions.space.dialog.title" = "Unfortunately, BoilerComfort is not possible for your house.";
+"l.boilerComfort.pages.boilerAccessibile.questions.space.title" = "Is the space 1 meter around the boiler free?";
+"l.boilerComfort.pages.boilerAccessibile.questions.strairwell.dialog.message" = "The safety of our engineers is important when maintaining a central heating boiler. That is why we do not maintain central heating boilers that are only accessible via stairs or ladder.
+Do you want to use energy smarter at home? Discover what other solutions we have for a sustainable home.
+";
+"l.boilerComfort.pages.boilerAccessibile.questions.strairwell.dialog.title" = "Unfortunately, BoilerComfort is not possible for your house.";
+"l.boilerComfort.pages.boilerAccessibile.questions.strairwell.title" = "Is the boiler hanging in the stairwell?";
+"l.boilerComfort.pages.boilerAge.questions.boilerAge.answers.olderThan10" = "10 years or older";
+"l.boilerComfort.pages.boilerAge.questions.boilerAge.answers.youngerThan10" = "1 to 9 years";
+"l.boilerComfort.pages.boilerAge.questions.boilerAge.body" = "The year of manufacture of the boiler can often be found on a sticker or plate on the boiler.";
+"l.boilerComfort.pages.boilerAge.questions.boilerAge.title" = "How old is the boiler?";
+"l.boilerComfort.pages.boilerBrand.questions.boilerBrand.body" = "This way our technicians know which materials they need to take to maintain or repair your boiler.";
+"l.boilerComfort.pages.boilerBrand.questions.boilerBrand.dialogs.dontKnowBrand.message" = "Where can I find the brand?
+View your boiler to find out which brand of boiler you have. This is usually on the front of your boiler.
+If you cannot figure it out completely, you can always call our Customer Service. We are available daily from 8 a.m. to 9 p.m. at 088 - 8 955 955 (usual calling costs).
+";
+"l.boilerComfort.pages.boilerBrand.questions.boilerBrand.dialogs.dontKnowBrand.title" = "I don\'t know my boiler brand";
+"l.boilerComfort.pages.boilerBrand.questions.boilerBrand.dialogs.notListed.message" = "Unfortunately, we cannot provide the desired service for all types of boilers.
+Do you want to buy or rent a new boiler with maintenance subscription through Eneco? We help you with customized advice. In this way you are assured of an energy-efficient top boiler that fits perfectly with you and your home.
+";
+"l.boilerComfort.pages.boilerBrand.questions.boilerBrand.dialogs.notListed.title" = "My boiler brand is not listed";
+"l.boilerComfort.pages.boilerBrand.questions.boilerBrand.title" = "Which brand of boiler do you have?";
+"l.boilerComfort.pages.boilerType.questions.boilerType.dialog.message" = "Unfortunately, we cannot provide the desired service for all types of boilers.
+Do you want to buy or rent a new boiler with a maintenance contract via Eneco? We help you with customized advice. In this way you are assured of an energy-efficient top boiler that fits perfectly with you and your home.
+";
+"l.boilerComfort.pages.boilerType.questions.boilerType.dialog.title" = "Unfortunately, BoilerComfort is not possible for your house.";
+"l.boilerComfort.pages.boilerType.questions.boilerType.title" = "Is your boiler one of the following types?";
+"l.boilerComfort.pages.hasOwnBoiler.body" = "Wondering if your house is suitable for BoilerComfort? You know the answer within a few questions. To start with, we would like to know if you are heating your house with a central heating boiler.";
+"l.boilerComfort.pages.hasOwnBoiler.questions.hasBoiler.dialog.message" = "KetelComfort is not possible if you heat your house via a heat source such as district heating, a gas heater or block heating. BoilerComfort is only suitable for individual central heating boilers in homes.
+Do you want to use energy smarter at home? Discover what other solutions we have for a sustainable home.
+";
+"l.boilerComfort.pages.hasOwnBoiler.questions.hasBoiler.dialog.title" = "Unfortunately, BoilerComfort is not possible for your house.";
+"l.boilerComfort.pages.hasOwnBoiler.questions.hasBoiler.title" = "Do you heat your house with a central heating boiler?";
+"l.boilerComfort.pages.hasOwnBoiler.questions.ownBoiler.dialog.message" = "If you rent the boiler, or if this is arranged through the housing association or landlord of your home, then BoilerComfort is not possible. Ask your landlord about the maintenance contract for your boiler.
+Do you want to use energy smarter at home? Discover what other solutions we have for a sustainable home.
+";
+"l.boilerComfort.pages.hasOwnBoiler.questions.ownBoiler.dialog.title" = "Unfortunately, BoilerComfort is not possible for your house.";
+"l.boilerComfort.pages.hasOwnBoiler.questions.ownBoiler.title" = "Is the boiler your property?";
+"l.breakdown.categories.standby.content.0.body" = "Body1";
+"l.breakdown.categories.standby.content.0.title" = "Title1";
+"l.breakdown.categories.standby.content.1.body" = "body2";
+"l.breakdown.categories.standby.content.1.title" = "Title2";
+"l.breakdown.categories.standby.detailedDescription" = "Description of standby";
+"l.general.button.ok" = "OK";
+"l.general.error.invalidField" = "Invalid value";
+"l.general.error.tryAgainLater" = "Check your internet connection and try again.";
+"l.general.iDontKnow" = "I
+don\'t know
+";
+"l.general.no" = "No";
+"l.general.withParams" = "A piece of %1$@ with a piece of %2$@";
+"l.general.yes" = "Yes";
+"l.greetings.hello" = "Hello from common code";
+"l.unit.electricity.u3" = "kWh";
+"l.unit.electricity.u6" = "MWh";
+"l.unit.electricity.u9" = "GWh";
+"l.unit.gas" = "m³";

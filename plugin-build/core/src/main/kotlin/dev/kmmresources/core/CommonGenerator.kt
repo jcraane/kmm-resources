@@ -72,7 +72,9 @@ data class CommonGenerated(
                 val function = "${fullNodePath}.${name}(${arguments})"
 
                 generatedExpectFunctions += "expect fun ${function}: String\n"
-                platformGenerators.forEach { it.generateActual(function, parentPath, name, numberOfArguments) }
+                platformGenerators.forEach {
+                    it.generateActual(function, parentPath, name, numberOfArguments)
+                }
 
                 return ""
             } else {

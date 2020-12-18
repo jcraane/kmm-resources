@@ -4,11 +4,6 @@ plugins {
     kotlin("multiplatform")
     id("com.android.application")
     id("com.capoax.kmmresources")
-    /*id("com.android.application")
-    kotlin("android")
-    kotlin("android.extensions")
-    kotlin("kapt")
-    id("com.capoax.kmmresources")*/
 }
 
 repositories {
