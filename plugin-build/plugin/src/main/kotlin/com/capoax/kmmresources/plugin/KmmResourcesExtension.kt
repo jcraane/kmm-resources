@@ -1,4 +1,4 @@
-package dev.kmmresources.plugin
+package com.capoax.kmmresources.plugin
 
 import org.gradle.api.Project
 import org.gradle.api.provider.Property
@@ -19,5 +19,9 @@ abstract class KmmResourcesExtension @Inject constructor(project: Project) {
     val packageName: Property<String> = objects.property(String::class.java)
 
     val sharedModuleName: Property<String> = objects.property(String::class.java)
+
+    val androidStringsPrefix: Property<String> = objects.property(String::class.java).apply {
+        set("generated_")
+    }
 }
 

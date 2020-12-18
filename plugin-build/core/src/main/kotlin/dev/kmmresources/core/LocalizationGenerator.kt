@@ -11,6 +11,7 @@ class LocalizationGenerator(
     val androidRPackage: String,
     val androidDefaultLanguage: String = "en",
     val packageName: String?,
+    val androidStringsPrefix: String = "generated_",
     val sharedModuleFolder: String? = null) {
 
     val commonSrc: File get() = {
@@ -58,7 +59,9 @@ class LocalizationGenerator(
             val valuesFolderName = if (lang == androidDefaultLanguage) "values" else "values-${lang}"
             val langFolder = commonMainFolder.resolve(valuesFolderName)
             Files.createDirectories(langFolder.toPath())
-            val localizationFile = langFolder.resolve("strings.xml")
+            val localizationFile = langFolder.resolve("${androidStringsPrefix}strings.xml")
+//            val localizationFile = langFolder.resolve("strings.xml")
+            println("LOCALIZATION FILE = $localizationFile")
             localizationFile.writeText(contents)
 
             println("Generated ${localizationFile.path}")

@@ -4,12 +4,6 @@ plugins {
     id("com.capoax.kmmresources")
 }
 
-/*buildscript {
-    dependencies {
-        classpath(project(":gradle-plugin"))
-    }
-}*/
-
 repositories {
     // Use JCenter for resolving dependencies.
     jcenter()
@@ -21,13 +15,13 @@ dependencies {
 }
 
 kmmResourcesConfig {
-    message.set("Hallo23")
     androidRPackage.set("com.localizations")
     sharedModuleName.set("shared")
     packageName.set("com.example.project")
     androidDefaultLanguage.set("nl")
     input.set(File(project.projectDir.path, "generic_small.yaml"))
     output.set(project.projectDir.resolve("build").resolve("test_output"))
+    androidStringsPrefix.set("shared_")
 }
 
 val generateLocalizations = tasks["generateLocalizations"]

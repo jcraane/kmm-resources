@@ -10,4 +10,3 @@ rootProject.name = ("kmm-resources-plugin")
 
 include(":core")
 include(":plugin")
-

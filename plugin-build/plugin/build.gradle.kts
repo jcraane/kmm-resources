@@ -26,7 +26,7 @@ gradlePlugin {
     plugins {
         create("com.capoax.kmmresources") {
             id = "com.capoax.kmmresources"
-            implementationClass = "dev.kmmresources.plugin.KmmResourcesPlugin"
+            implementationClass = "com.capoax.kmmresources.plugin.KmmResourcesPlugin"
             version = "1.0.0"
         }
     }

@@ -1,4 +1,4 @@
-package dev.kmmresources.plugin
+package com.capoax.kmmresources.plugin
 
 import org.gradle.api.Project
 import org.gradle.api.Plugin
@@ -20,6 +20,7 @@ class KmmResourcesPlugin: Plugin<Project> {
             it.output.set(extension.output)
             it.sharedModuleName.set(extension.sharedModuleName)
             it.packageName.set(extension.packageName)
+            it.androidStringsPrefix.set(extension.androidStringsPrefix)
         }
     }
 }
