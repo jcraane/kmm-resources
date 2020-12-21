@@ -286,3 +286,54 @@ val objects = L.myView.myList
 print(objects[1].title()) // Features
 print(objects[1].subtitle()) // Subtitle of features
 ```
+
+## Using the plugin locally
+
+When developing this plugin you may want to test this plugin in a project not included in this composite build. To do this do the following:
+
+Execute ```./gradlew :kmmresources:publishToMavenLocal``` from the plugin-build folder. This task publishes to the local maven repository.
+   
+In the project in which the plugin must be integrated do the following:
+
+1. In settings.gradle.kts make sure the mavenLocal() repo is present in the pluginManagement section:
+
+```kotlin
+pluginManagement {
+    repositories {
+        mavenLocal()
+    }
+}
+```
+
+Add the dependency on the plugin the repositories section of the buildscript:
+
+```kotlin
+buildscript {
+    dependencies {
+        classpath("com.capoax.kmmresources:kmmresources:1.0.0-alpha01")
+    }
+}
+```
+
+Apply the plugin:
+
+```kotlin
+plugins {
+    id("com.capoax.kmmresources") version "1.0.0-alpha01"
+}
+```
+
+Configure the plugin (this configurations assumes an Android project):
+
+```kotlin
+kmmResourcesConfig {
+    androidApplicationId.set("com.example.app")
+    packageName.set("com.example.app.shared.localization")
+    androidDefaultLanguage.set("nl")
+    input.set(File(project.projectDir.path, "generic.yaml"))
+    output.set(project.projectDir)
+}
+
+val generateLocalizations = tasks["generateLocalizations"]
+tasks["preBuild"].dependsOn(generateLocalizations)
+```
