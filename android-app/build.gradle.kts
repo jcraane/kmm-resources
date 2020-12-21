@@ -107,6 +107,7 @@ val packForXcode by tasks.creating(Sync::class) {
     inputs.property("mode", mode)
     dependsOn(framework.linkTask)
     val targetDir = findProperty("configuration.build.dir")
+    println("targetDir = $targetDir")
     if (targetDir == null) {
         System.err.println("configuration.build.dir is not defined. Please pass this property from the XCode build.")
     }
@@ -116,7 +117,7 @@ val packForXcode by tasks.creating(Sync::class) {
     doLast {
         copy {
             from("${project.rootDir}/android-app/src/commonMain/resources/ios")
-            into("${targetDir}/common.framework")
+            into("${targetDir}/shared.framework")
         }
     }
 }
