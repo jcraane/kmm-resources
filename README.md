@@ -12,7 +12,7 @@ Although this plugin generates resources for both Android and iOS, it is not man
 
 ### Gradle configuration
 
-
+See 'Using the plugin locally' for now.
 
 ### Android
 
