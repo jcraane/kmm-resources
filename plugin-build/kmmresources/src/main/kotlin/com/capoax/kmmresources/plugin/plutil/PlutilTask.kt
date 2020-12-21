@@ -29,7 +29,7 @@ abstract class PlutilTask : DefaultTask() {
     }
 
     companion object {
-        const val NAME = "plutil"
+        const val NAME = "executePlutil"
         private const val LOCALIZABLE_FILE_NAME = "Localizable.strings"
     }
 }

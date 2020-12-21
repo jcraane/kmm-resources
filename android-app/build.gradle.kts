@@ -91,7 +91,7 @@ kmmResourcesConfig {
     output.set(project.projectDir)
 }
 
-val plutil = tasks["plutil"]
+val plutil = tasks["executePlutil"]
 val generateLocalizations = tasks["generateLocalizations"]
 plutil.dependsOn(generateLocalizations)
 
