@@ -91,8 +91,12 @@ kmmResourcesConfig {
     output.set(project.projectDir)
 }
 
+val plutil = tasks["plutil"]
 val generateLocalizations = tasks["generateLocalizations"]
-tasks["preBuild"].dependsOn(generateLocalizations)
+plutil.dependsOn(generateLocalizations)
+
+//tasks["preBuild"].dependsOn(generateLocalizations)
+tasks["preBuild"].dependsOn(plutil)
 
 val packForXcode by tasks.creating(Sync::class) {
     group = "build"

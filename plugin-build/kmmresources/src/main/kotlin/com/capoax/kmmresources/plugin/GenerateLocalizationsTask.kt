@@ -49,8 +49,13 @@ abstract class GenerateLocalizationsTask : DefaultTask() {
             androidApplicationId = androidApplicationId.get(),
             androidDefaultLanguage = androidDefaultLanguage.get(),
             packageName = packageName.get(),
-            androidStringsPrefix = androidStringsPrefix.get()
+            androidStringsPrefix = androidStringsPrefix.get(),
+            srcFolder = srcFolder.get()
         )
         generator.generate()
+    }
+
+    companion object {
+        const val NAME = "generateLocalizations"
     }
 }

@@ -1,19 +1,29 @@
 package com.capoax.kmmresources.plugin
 
+import com.capoax.kmmresources.plugin.plutil.PlutilTask
 import org.gradle.api.Project
 import org.gradle.api.Plugin
-
-const val EXTENSION_NAME = "kmmResourcesConfig"
-const val TASK_NAME = "generateLocalizations"
 
 class KmmResourcesPlugin: Plugin<Project> {
     /**
      * Entry point of the plugin which Gradle calls when the plugin is applied to the project.
      */
     override fun apply(project: Project) {
-        val extension = project.extensions.create(EXTENSION_NAME, KmmResourcesExtension::class.java, project)
+        val extension = project.extensions.create(KmmResourcesExtension.NAME, KmmResourcesExtension::class.java, project)
 
-        project.tasks.register(TASK_NAME, GenerateLocalizationsTask::class.java) {
+        registerLocalizationsTask(project, extension)
+        registerPlutilTask(project, extension)
+    }
+
+    private fun registerPlutilTask(project: Project, extension: KmmResourcesExtension) {
+        project.tasks.register(PlutilTask.NAME, PlutilTask::class.java) {
+            println("extension.srcFolder = ${extension.srcFolder.get()}")
+            it.srcFolder.set(extension.srcFolder)
+        }
+    }
+
+    private fun registerLocalizationsTask(project: Project, extension: KmmResourcesExtension) {
+        project.tasks.register(GenerateLocalizationsTask.NAME, GenerateLocalizationsTask::class.java) {
             it.androidApplicationId.set(extension.androidApplicationId)
             it.androidDefaultLanguage.set(extension.androidDefaultLanguage)
             it.input.set(extension.input)
