@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm")
     id("java-gradle-plugin")
+    `maven-publish`
     id("com.gradle.plugin-publish")
 }
 
@@ -11,7 +12,8 @@ val description: String by project
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
-    implementation(project(path = ":core", configuration = "default"))
+//    compile(project(path = ":core", configuration = "default"))
+    compile("org.yaml:snakeyaml:1.27")
     implementation(gradleApi())
 
 //    testImplementation(junitVersion)
@@ -21,6 +23,16 @@ java {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
 }
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            artifactId = "kmmresources"
+        }
+    }
+}
+
+
 
 gradlePlugin {
     plugins {
