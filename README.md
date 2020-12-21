@@ -2,10 +2,17 @@
 
 Generator including Gradle plugin to generate KMM (Kotlin Multiplatform Mobile) resources for iOS and Android. This tool generates Android xml string resources and iOS localizable strings based on a single YAML file that includes all the localized strings to be used in your KMM app. It also generates Kotlin code for your common module to refer statically to those strings (similar to R. in Android).
 
+Although this plugin generates resources for both Android and iOS, it is not mandatory to have both an Android and iOS application present. For example, the Android app can be developed first using Kotlin Multiplatform Mobile and kmm-resources to which an iOS app is added later.
+
+## Prerequisites
+
+- If using this plugin for iOS, OSX is required since it depends on the plutil command line utility to convert Localizable.strings to a binary representation.
 
 ## Usage
 
-TODO
+### Gradle configuration
+
+
 
 ### Android
 
