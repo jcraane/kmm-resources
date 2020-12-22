@@ -12,7 +12,8 @@ class LocalizationGenerator(
     val androidDefaultLanguage: String = "en",
     val packageName: String?,
     val androidStringsPrefix: String = "generated_",
-    val srcFolder: String = "src") {
+    val srcFolder: String = "src",
+    val generatedClassName: String = "KMMResourcesLocalization.kt") {
 
     val commonSrc: File get() = {
         val src = output.resolve(srcFolder)
@@ -76,7 +77,7 @@ class LocalizationGenerator(
             mainFolder = mainFolder.resolve(subfolder)
         }
         Files.createDirectories(mainFolder.toPath())
-        val localizationFile = mainFolder.resolve("KMMResourcesLocalization.kt")
+        val localizationFile = mainFolder.resolve(generatedClassName)
         localizationFile.delete()
         Files.createFile(localizationFile.toPath())
         localizationFile.writeText(this)

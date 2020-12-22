@@ -3,7 +3,7 @@ plugins {
     id("java-gradle-plugin")
     `maven-publish`
     id("com.gradle.plugin-publish")
-    id("com.jfrog.bintray")
+//    id("com.jfrog.bintray")
 }
 
 val junitVersion: String by project

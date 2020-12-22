@@ -37,6 +37,10 @@ abstract class GenerateLocalizationsTask : DefaultTask() {
     @get:Option(option = "srcFolder", description = "The source folder to generate the code to, defaults to 'src'")
     abstract val srcFolder: Property<String>
 
+    @get:Input
+    @get:Option(option = "generatedClassName", description = "The name of the generated class containing the expact/actual definitions. Defaults to 'KMMResourcesLocalization.kt'")
+    abstract val generatedClassName: Property<String>
+
     init {
         description = "Generate localizations task"
     }
@@ -50,7 +54,8 @@ abstract class GenerateLocalizationsTask : DefaultTask() {
             androidDefaultLanguage = androidDefaultLanguage.get(),
             packageName = packageName.get(),
             androidStringsPrefix = androidStringsPrefix.get(),
-            srcFolder = srcFolder.get()
+            srcFolder = srcFolder.get(),
+            generatedClassName = generatedClassName.get()
         )
         generator.generate()
     }

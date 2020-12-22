@@ -26,6 +26,10 @@ abstract class KmmResourcesExtension @Inject constructor(project: Project) {
         set("src")
     }
 
+    val generatedClassName: Property<String> = objects.property(String::class.java).apply {
+        set("KMMResourcesLocalization.kt")
+    }
+
     companion object {
         const val NAME = "kmmResourcesConfig"
     }
