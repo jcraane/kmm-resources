@@ -339,6 +339,9 @@ kmmResourcesConfig {
     androidDefaultLanguage.set("nl")
     input.set(File(project.projectDir.path, "generic.yaml"))
     output.set(project.projectDir)
+    srcFolder.set("src") // Optional, defaults to 'src'
+    generatedClassName.set("KMMResourcesLocalization.kt") // Optional, defaults to 'KMMResourcesLocalization.kt'
+    androidStringsPrefix.set("_generated") // Optional, defaults to '_generated'
 }
 
 val generateLocalizations = tasks["generateLocalizations"]
