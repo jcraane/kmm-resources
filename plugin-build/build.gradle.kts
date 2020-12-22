@@ -9,7 +9,7 @@ plugins {
 }
 
 allprojects {
-    group = "com.capoax.kmmresources"
+    group = "dev.jamiecraane.plugins"
     version = "1.0.0-alpha01"
 
     repositories {

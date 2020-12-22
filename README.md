@@ -35,7 +35,7 @@ Add the dependency on the plugin the repositories section of the buildscript:
 ```kotlin
 buildscript {
     dependencies {
-        classpath("com.capoax.kmmresources:kmmresources:1.0.0-alpha01")
+        classpath("dev.jamiecraane.plugins:kmmresources:1.0.0-alpha01")
     }
 }
 ```
