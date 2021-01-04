@@ -10,6 +10,20 @@ Although this plugin generates resources for both Android and iOS, it is not man
 
 ## Configuration
 
+### Using the plugin via Gradle Plugin Portal
+
+The KMMResources  plugin is published via the Gradle plugin portal and can be found here: https://plugins.gradle.org/plugin/dev.jamiecraane.plugins.kmmresources
+
+Add the following plugin definition to start using the plugin:
+
+```kotlin
+plugins {
+  id "dev.jamiecraane.plugins.kmmresources" version "1.0.0-alpha01"
+}
+```
+
+See the [Plugin page](https://plugins.gradle.org/plugin/dev.jamiecraane.plugins.kmmresources) for more instructions if needed.
+
 ### Deploy and include plugin locally
 
 Since the plugin is not published yet to a remote repository, it needs to be published to the local maven repo (or a company maintained Maven repo).
