@@ -26,9 +26,7 @@ See the [Plugin page](https://plugins.gradle.org/plugin/dev.jamiecraane.plugins.
 
 ### Deploy and include plugin locally
 
-Since the plugin is not published yet to a remote repository, it needs to be published to the local maven repo (or a company maintained Maven repo).
-
-When developing this plugin you may want to test this plugin in a project not included in this composite build. To do this do the following:
+When developing this plugin (or when forking this plugin and adding code to it) you may want to test this plugin in a project not included in this composite build. To do this do the following:
 
 Navigate to the plugin-build folder and execute ```./gradlew :kmmresources:publishToMavenLocal```. This task publishes to the local maven repository.
 
