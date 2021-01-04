@@ -2,15 +2,12 @@ plugins {
     kotlin("jvm")
     id("java-gradle-plugin")
     `maven-publish`
-    `signing`
+//    `signing`
     id("com.gradle.plugin-publish")
-//    id("com.jfrog.bintray")
 }
 
 val junitVersion: String by project
-val website: String by project
-val vcsUrl: String by project
-val description: String by project
+val description = "Gradle plugin for generating localizable resources for Android and iOS in a Kotlin Multiplatform Mobile project for use in the UI, android, iOS and shared framework code."
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
@@ -26,13 +23,9 @@ java {
     targetCompatibility = JavaVersion.VERSION_1_8
 }
 
-/*signing {
-    sign(publishing.publications["KmmResourcesPlugin"])
-}*/
-
 publishing {
     publications {
-        create<MavenPublication>("KmmResourcesPlugin") {
+        /*create<MavenPublication>("KmmResourcesPlugin") {
             artifactId = "kmmresources"
             pom {
                 name.set("KMM Resources plugin")
@@ -60,28 +53,33 @@ publishing {
                     url.set("https://github.com/jcraane/kmm-resources")
                 }
             }
-        }
+        }*/
 
         repositories {
             maven {
                 name = "myRepo"
                 url = uri("file://Users/jamiecraane/Downloads/repo")
+                /*name = "publishRepo"
+                url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
+                credentials {
+                    username = project.property("ossrhUsername") as String
+                    password = project.property("ossrhPassword") as String
+                }*/
             }
         }
     }
 }
 
-
-
-signing {
+/*signing {
     sign(publishing.publications["KmmResourcesPlugin"])
-}
+}*/
 
 gradlePlugin {
     plugins {
         create("KmmResources") {
             id = "dev.jamiecraane.plugins.kmmresources"
             implementationClass = "com.capoax.kmmresources.plugin.KmmResourcesPlugin"
+            description = description
             version = "1.0.0-alpha01"
         }
     }
@@ -89,14 +87,16 @@ gradlePlugin {
 
 // Configuration Block for the Plugin Marker artifact on Plugin Central
 pluginBundle {
-    website = website
-    vcsUrl = vcsUrl
-    description = description
+    website = "https://github.com/jcraane/kmm-resources"
+    vcsUrl = "https://github.com/jcraane/kmm-resources.git"
+    description = "Gradle plugin for generating localizable resources for Android and iOS in a Kotlin Multiplatform Mobile project for use in the UI, android, iOS and shared framework code."
     tags = listOf(
         "plugin",
         "gradle",
-        "sample",
-        "template"
+        "kmm",
+        "multiplatform",
+        "android",
+        "ios"
     )
 
 
