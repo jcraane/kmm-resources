@@ -2,6 +2,7 @@ plugins {
     kotlin("jvm")
     id("java-gradle-plugin")
     `maven-publish`
+    `signing`
     id("com.gradle.plugin-publish")
 //    id("com.jfrog.bintray")
 }
@@ -24,6 +25,10 @@ java {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
 }
+
+/*signing {
+    sign(publishing.publications["KmmResourcesPlugin"])
+}*/
 
 publishing {
     publications {
@@ -64,6 +69,12 @@ publishing {
             }
         }
     }
+}
+
+
+
+signing {
+    sign(publishing.publications["KmmResourcesPlugin"])
 }
 
 gradlePlugin {
