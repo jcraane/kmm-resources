@@ -27,7 +27,7 @@ java {
 
 publishing {
     publications {
-        create<MavenPublication>("maven") {
+        create<MavenPublication>("KmmResourcesPlugin") {
             artifactId = "kmmresources"
             pom {
                 name.set("KMM Resources plugin")
@@ -56,13 +56,20 @@ publishing {
                 }
             }
         }
+
+        repositories {
+            maven {
+                name = "myRepo"
+                url = uri("file://Users/jamiecraane/Downloads/repo")
+            }
+        }
     }
 }
 
 gradlePlugin {
     plugins {
-        create("com.capoax.kmmresources") {
-            id = "com.capoax.kmmresources"
+        create("KmmResources") {
+            id = "dev.jamiecraane.plugins.kmmresources"
             implementationClass = "com.capoax.kmmresources.plugin.KmmResourcesPlugin"
             version = "1.0.0-alpha01"
         }
@@ -83,7 +90,7 @@ pluginBundle {
 
 
     plugins {
-        getByName("com.capoax.kmmresources") {
+        getByName("KmmResources") {
             displayName = "Gradle plugin for generating localizable resources for Android and iOS in a Kotlin Multiplatform Mobile project"
         }
     }

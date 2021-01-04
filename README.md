@@ -16,7 +16,7 @@ Since the plugin is not published yet to a remote repository, it needs to be pub
 
 When developing this plugin you may want to test this plugin in a project not included in this composite build. To do this do the following:
 
-Execute ```./gradlew :kmmresources:publishToMavenLocal``` from the plugin-build folder. This task publishes to the local maven repository.
+Navigate to the plugin-build folder and execute ```./gradlew :kmmresources:publishToMavenLocal```. This task publishes to the local maven repository.
 
 In the project in which the plugin must be integrated do the following:
 
