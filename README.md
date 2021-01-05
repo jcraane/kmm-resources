@@ -18,7 +18,7 @@ Add the following plugin definition to start using the plugin:
 
 ```kotlin
 plugins {
-  id "dev.jamiecraane.plugins.kmmresources" version "1.0.0-alpha01"
+  id "dev.jamiecraane.plugins.kmmresources" version "1.0.0-alpha02"
 }
 ```
 
@@ -47,7 +47,7 @@ Add the dependency on the plugin the repositories section of the buildscript:
 ```kotlin
 buildscript {
     dependencies {
-        classpath("dev.jamiecraane.plugins:kmmresources:1.0.0-alpha01")
+        classpath("dev.jamiecraane.plugins:kmmresources:1.0.0-alpha02")
     }
 }
 ```
@@ -56,7 +56,7 @@ Apply the plugin:
 
 ```kotlin
 plugins {
-    id("com.capoax.kmmresources") version "1.0.0-alpha01"
+    id("com.capoax.kmmresources") version "1.0.0-alpha02"
 }
 ```
 

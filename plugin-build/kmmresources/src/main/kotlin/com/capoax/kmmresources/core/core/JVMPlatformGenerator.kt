@@ -3,7 +3,7 @@ package com.capoax.kmmresources.core
 data class JVMPlatformGenerator(
         private val packageDeclaration: String?,
         override val generated: MutableMap<String, String> = mutableMapOf(),
-        override var generatedActual: String = ""
+        override var generatedActual: String = "$packageDeclaration"
 ): PlatformGenerator {
 
     override fun generateLocalization(key: String, value: LocalizationValue, language: String) {

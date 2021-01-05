@@ -25,7 +25,7 @@ java {
 
 publishing {
     publications {
-        /*create<MavenPublication>("KmmResourcesPlugin") {
+/*        create<MavenPublication>("KmmResourcesPlugin") {
             artifactId = "kmmresources"
             pom {
                 name.set("KMM Resources plugin")
@@ -80,7 +80,7 @@ gradlePlugin {
             id = "dev.jamiecraane.plugins.kmmresources"
             implementationClass = "com.capoax.kmmresources.plugin.KmmResourcesPlugin"
             description = description
-            version = "1.0.0-alpha01"
+            version = "1.0.0-alpha02"
         }
     }
 }

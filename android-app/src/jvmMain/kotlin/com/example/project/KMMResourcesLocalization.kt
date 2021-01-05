@@ -1,3 +1,5 @@
+package com.example.project
+
 actual fun L.ExampleContent.Pages.Page1.body(): String = ""
 actual fun L.ExampleContent.Pages.Page1.title(): String = ""
 actual fun L.ExampleContent.Pages.Page2.body(): String = ""
