@@ -26,6 +26,7 @@ class KmmResourcesPlugin: Plugin<Project> {
         project.tasks.register(GenerateLocalizationsTask.NAME, GenerateLocalizationsTask::class.java) {
             it.androidApplicationId.set(extension.androidApplicationId)
             it.androidDefaultLanguage.set(extension.androidDefaultLanguage)
+            it.androidSourceFolder.set(extension.androidSourceFolder)
             it.input.set(extension.input)
             it.output.set(extension.output)
             it.packageName.set(extension.packageName)

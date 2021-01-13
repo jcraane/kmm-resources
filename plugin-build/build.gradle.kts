@@ -10,7 +10,7 @@ plugins {
 
 allprojects {
     group = "dev.jamiecraane.plugins"
-    version = "1.0.0-alpha02"
+    version = "1.0.0-alpha03"
 
     repositories {
         google()

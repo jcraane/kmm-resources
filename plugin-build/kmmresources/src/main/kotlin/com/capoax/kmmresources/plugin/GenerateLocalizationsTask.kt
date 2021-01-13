@@ -26,6 +26,10 @@ abstract class GenerateLocalizationsTask : DefaultTask() {
     abstract val androidDefaultLanguage: Property<String>
 
     @get:Input
+    @get:Option(option = "androidSourceFolder", description = "The source folder to generate the localizations class for Android. Defaults to main, but some multiplatform projects use androidMain.")
+    abstract val androidSourceFolder: Property<String>
+
+    @get:Input
     @get:Option(option = "packageName", description = "The package for the generated code")
     abstract val packageName: Property<String>
 
@@ -52,6 +56,7 @@ abstract class GenerateLocalizationsTask : DefaultTask() {
             output = output.get(),
             androidApplicationId = androidApplicationId.get(),
             androidDefaultLanguage = androidDefaultLanguage.get(),
+            androidSourceFolder = androidSourceFolder.get(),
             packageName = packageName.get(),
             androidStringsPrefix = androidStringsPrefix.get(),
             srcFolder = srcFolder.get(),

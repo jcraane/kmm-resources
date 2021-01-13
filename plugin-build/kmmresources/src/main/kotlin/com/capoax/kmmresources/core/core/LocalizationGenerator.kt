@@ -10,6 +10,7 @@ class LocalizationGenerator(
     val output: File,
     val androidApplicationId: String,
     val androidDefaultLanguage: String = "en",
+    val androidSourceFolder: String = "main",
     val packageName: String?,
     val androidStringsPrefix: String = "generated_",
     val srcFolder: String = "src",
@@ -25,8 +26,8 @@ class LocalizationGenerator(
         val contents = YamlParser(input).parse()
         val commonGenerated = CommonGenerator(contents, androidApplicationId, packageName).generate()
         writeCommon(commonGenerated.generated)
-        writeAndroid(commonGenerated.androidPlatformGenerator.generatedActual)
-        writeAndroidResources(commonGenerated.androidPlatformGenerator.generated)
+        writeAndroid(commonGenerated.androidPlatformGenerator.generatedActual, androidSourceFolder)
+        writeAndroidResources(commonGenerated.androidPlatformGenerator.generated, androidSourceFolder)
         writeIOS(commonGenerated.iOSPlatformGenerator.generatedActual)
         writeIOSResources(commonGenerated.iOSPlatformGenerator.generated)
         writeJVM(commonGenerated.jvmPlatformGenerator.generatedActual)
@@ -52,10 +53,17 @@ class LocalizationGenerator(
         }
     }
 
-    private fun writeAndroid(contents: String) = contents.writeTo()
+    private fun writeAndroid(contents: String, androidSourceFolder: String) {
+        val target = when  {
+            androidSourceFolder == "main" -> ""
+            androidSourceFolder.endsWith("Main") -> androidSourceFolder.replace("Main", "")
+            else -> ""
+        }
+        contents.writeTo(target)
+    }
 
-    private fun writeAndroidResources(contents: Map<String, String>) {
-        val commonMainFolder = commonSrc.resolve("main").resolve("res")
+    private fun writeAndroidResources(contents: Map<String, String>, androidSourceFolder: String) {
+        val commonMainFolder = commonSrc.resolve(androidSourceFolder).resolve("res")
         Files.createDirectories(commonMainFolder.toPath())
         contents.forEach { (lang, contents) ->
             val valuesFolderName = if (lang == androidDefaultLanguage) "values" else "values-${lang}"
