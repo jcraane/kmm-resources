@@ -72,7 +72,7 @@ internal fun localizations_$language(): Map<String, String> {
     override fun generateActualObjectList(function: String, path: List<String>, name: String) {
         val id = (path + listOf("${name}.\$index") + listOf(function)).joinToString(".")
         val functionName = "${(path.map { it.capitalize() } + listOf(name.capitalize()) + listOf(function)).joinToString(".")}()"
-        generatedActual += "actual fun ${functionName}: String = \"\"\n"
+        generatedActual += "actual fun ${functionName}: String = getString(\"${id}\")\n"
     }
 
     override fun finish() {
