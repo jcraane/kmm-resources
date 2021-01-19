@@ -34,20 +34,23 @@ class LocalizationGenerator(
         val contents = YamlParser(input).parse()
         val commonGenerated = CommonGenerator(contents, androidApplicationId, packageName, defaultLanguage).generate()
         writeCommon(commonGenerated.generated)
-        writeAndroid(commonGenerated.androidPlatformGenerator.generatedActual, androidSourceFolder)
-        writeAndroidResources(commonGenerated.androidPlatformGenerator.generated, androidSourceFolder)
-        writeIOS(commonGenerated.iOSPlatformGenerator.generatedActual)
-        writeIOSResources(commonGenerated.iOSPlatformGenerator.generated)
+        if (writeAndroid(commonGenerated.androidPlatformGenerator.generatedActual, androidSourceFolder)) {
+            writeAndroidResources(commonGenerated.androidPlatformGenerator.generated, androidSourceFolder)
+        }
+        if (writeIOS(commonGenerated.iOSPlatformGenerator.generatedActual)) {
+            writeIOSResources(commonGenerated.iOSPlatformGenerator.generated)
+        }
         writeJVM(commonGenerated.jvmPlatformGenerator.generatedActual)
-        writeJS(commonGenerated.jsPlatformGenerator.generatedActual)
-        writeJSResources(commonGenerated.jsPlatformGenerator.generated)
+        if (writeJS(commonGenerated.jsPlatformGenerator.generatedActual)) {
+            writeJSResources(commonGenerated.jsPlatformGenerator.generated)
+        }
     }
 
     private fun writeCommon(contents: String) = contents.writeTo("common")
 
-    private fun writeIOS(contents: String) = iosTargets.forEach { target ->
+    private fun writeIOS(contents: String) = iosTargets.map { target ->
         contents.writeTo(target)
-    }
+    }.contains(true)
 
     private fun writeIOSResources(contents: Map<String, String>) {
         val commonMainFolder = commonSrc.resolve("commonMain").resolve("resources").resolve("ios")
@@ -99,22 +102,28 @@ class LocalizationGenerator(
         }
     }
 
-    private fun String.writeTo(target: String? = null) {
+    private fun String.writeTo(target: String? = null): Boolean {
         val resolvedTarget = when  {
             target == "main" -> ""
             target?.endsWith("Main") == true -> target.replace("Main", "")
             else -> target
         }
-        var mainFolder = commonSrc.resolve(resolvedTarget?.let { "${it}Main" } ?: "main").resolve("kotlin")
-        packageName?.split('.')?.forEach { subfolder ->
-            mainFolder = mainFolder.resolve(subfolder)
+        val mainFolder = commonSrc.resolve(resolvedTarget?.let { "${it}Main" } ?: "main")
+        if (!mainFolder.exists()) {
+            println("Skip generation of $target since $mainFolder does not exist")
+            return false
         }
-        Files.createDirectories(mainFolder.toPath())
-        val localizationFile = mainFolder.resolve(generatedClassName)
+        var mainSourceFolder = mainFolder.resolve("kotlin")
+        packageName?.split('.')?.forEach { subfolder ->
+            mainSourceFolder = mainSourceFolder.resolve(subfolder)
+        }
+        Files.createDirectories(mainSourceFolder.toPath())
+        val localizationFile = mainSourceFolder.resolve(generatedClassName)
         localizationFile.delete()
         Files.createFile(localizationFile.toPath())
         localizationFile.writeText(this)
 
         println("Generated ${localizationFile.path}")
+        return true
     }
 }
