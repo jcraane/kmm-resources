@@ -1,8 +1,8 @@
 # KMM Resources
 
-Generator including Gradle plugin to generate KMM (Kotlin Multiplatform Mobile) resources for iOS and Android. This tool generates Android xml string resources and iOS localizable strings based on a single YAML file that includes all the localized strings to be used in your KMM app. It also generates Kotlin code for your common module to refer statically to those strings (similar to R. in Android).
+Generator including Gradle plugin to generate KMM (Kotlin Multiplatform Mobile) resources for iOS, Android and Web (Javascript). This tool generates Android xml string resources, iOS localizable strings and Javascript localization files based on a single YAML file that includes all the localized strings to be used in your KMM app. It also generates Kotlin code for your common module to refer statically to those strings (similar to R. in Android).
 
-Although this plugin generates resources for both Android and iOS, it is not mandatory to have both an Android and iOS application present. For example, the Android app can be developed first using Kotlin Multiplatform Mobile and kmm-resources to which an iOS app is added later.
+Although this plugin generates resources for both Android, iOS and Web, it is not mandatory to have both an Android, iOS or Web application present. For example, the Android app can be developed first using Kotlin Multiplatform Mobile and kmm-resources to which an iOS app is added later.
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ Add the dependency on the plugin the repositories section of the buildscript:
 ```kotlin
 buildscript {
     dependencies {
-        classpath("dev.jamiecraane.plugins:kmmresources:1.0.0-alpha02")
+        classpath("dev.jamiecraane.plugins:kmmresources:1.0.0-alpha05")
     }
 }
 ```
@@ -56,7 +56,7 @@ Apply the plugin:
 
 ```kotlin
 plugins {
-    id("com.capoax.kmmresources") version "1.0.0-alpha02"
+    id("com.capoax.kmmresources") version "1.0.0-alpha05"
 }
 ```
 
@@ -68,7 +68,7 @@ plugins {
 kmmResourcesConfig {
     androidApplicationId.set("com.example.app")
     packageName.set("com.example.app.shared.localization")
-    androidDefaultLanguage.set("nl")
+    defaultLanguage.set("nl")
     input.set(File(project.projectDir.path, "generic.yaml"))
     output.set(project.projectDir)
     srcFolder.set("src") // Optional, defaults to 'src'
@@ -210,7 +210,7 @@ import com.example.project.localizationContext
 class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        // localizationContext is defined in the KMMResourcesLocalization.kt file which contains the actual implementations of the resource functions. 
+        // localizationContext is defined in the KMMResourcesLocalization.kt file which contains the actual implementations of the resource functions.
         localizationContext = this
     }
 }
@@ -459,3 +459,27 @@ val objects = L.myView.myList
 print(objects[1].title()) // Features
 print(objects[1].subtitle()) // Subtitle of features
 ```
+
+### Javascript
+
+Since Javascript is lacking a standard localization method the tool is simply generating a single map that contains all localized strings for all languages.
+
+Just like on iOS and Android, to access the resources from code use the generated L class like in the following example:
+
+```kotlin
+L.greetings.hello()
+```
+
+The actual implementation of this will fetch the correct string based on the current language (see next section).
+
+#### Language resolution
+
+The current language will be resolved using the following steps:
+
+1. Manually set the `currentLanguage` variable that's generated in the `KMMResourcesLocalization.kt`. This can be done for example from pressing a language button on your website which can then be remembered in a cookie or local storage. By default `currentLanguage` is `null` and once set will overwrite the option below.
+
+2. If `currentLanguage` is `null`, `window.navigator.languages` will be evaluated and the first language is this array will be used as language. This should be supported by all modern browsers.
+
+In case a full ISO language and country classifier is used, such as `en-US`, both `en-US` and `en` will be used to find matching strings.
+
+In case the above methods do not find a matching string, the `defaultLanguage` configured for the plugin will be used as fallback language. For example if the `defaultLanguage` is `en` and the browser `window.navigator.languages` returns an unsupported language such as `nl_NL`, then `en` will be used as fallback language.
