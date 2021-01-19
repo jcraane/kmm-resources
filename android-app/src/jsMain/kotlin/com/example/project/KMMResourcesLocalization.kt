@@ -53,5 +53,5 @@ val localizations = {
     val localizations = mutableMapOf<String, Map<String, String>>()
 	localizations["en"] = localizations_en()
 	localizations["nl"] = localizations_nl()
-   localizations
+    localizations
 }()

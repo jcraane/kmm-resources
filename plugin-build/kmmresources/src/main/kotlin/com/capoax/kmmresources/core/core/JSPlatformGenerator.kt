@@ -88,7 +88,7 @@ internal fun localizations_$language(): Map<String, String> {
             generatedActual += "\tlocalizations[\"$language\"] = localizations_$language()\n"
         }
         generatedActual += """
-        |   localizations
+        |    localizations
         |}()
         |
         """.trimMargin()
