@@ -80,7 +80,7 @@ gradlePlugin {
             id = "dev.jamiecraane.plugins.kmmresources"
             implementationClass = "com.capoax.kmmresources.plugin.KmmResourcesPlugin"
             description = description
-            version = "1.0.0-alpha03"
+            version = "1.0.0-alpha04"
         }
     }
 }
