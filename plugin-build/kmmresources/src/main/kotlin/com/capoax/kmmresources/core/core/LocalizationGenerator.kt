@@ -11,6 +11,7 @@ class LocalizationGenerator(
     val androidApplicationId: String,
     val defaultLanguage: String = "en",
     val androidSourceFolder: String = "main",
+    val iosSourceFolder: String = "iosArm%Main",
     val packageName: String?,
     val androidStringsPrefix: String = "generated_",
     val srcFolder: String = "src",
@@ -20,6 +21,13 @@ class LocalizationGenerator(
         val src = output.resolve(srcFolder)
         Files.createDirectories(src.toPath())
         src
+    }()
+
+
+    private val iosTargets: List<String> = {
+        val targets = mutableListOf("iosX64")
+        targets += listOf(32, 64).map { iosSourceFolder.replace("%", it.toString()) }
+        targets
     }()
 
     fun generate() {
@@ -55,14 +63,7 @@ class LocalizationGenerator(
         }
     }
 
-    private fun writeAndroid(contents: String, androidSourceFolder: String) {
-        val target = when  {
-            androidSourceFolder == "main" -> ""
-            androidSourceFolder.endsWith("Main") -> androidSourceFolder.replace("Main", "")
-            else -> ""
-        }
-        contents.writeTo(target)
-    }
+    private fun writeAndroid(contents: String, target: String) = contents.writeTo(target)
 
     private fun writeAndroidResources(contents: Map<String, String>, androidSourceFolder: String) {
         val commonMainFolder = commonSrc.resolve(androidSourceFolder).resolve("res")
@@ -99,7 +100,12 @@ class LocalizationGenerator(
     }
 
     private fun String.writeTo(target: String? = null) {
-        var mainFolder = commonSrc.resolve(target?.let { "${it}Main" } ?: "main").resolve("kotlin")
+        val resolvedTarget = when  {
+            target == "main" -> ""
+            target?.endsWith("Main") == true -> target.replace("Main", "")
+            else -> target
+        }
+        var mainFolder = commonSrc.resolve(resolvedTarget?.let { "${it}Main" } ?: "main").resolve("kotlin")
         packageName?.split('.')?.forEach { subfolder ->
             mainFolder = mainFolder.resolve(subfolder)
         }
@@ -110,9 +116,5 @@ class LocalizationGenerator(
         localizationFile.writeText(this)
 
         println("Generated ${localizationFile.path}")
-    }
-
-    companion object {
-        private val iosTargets = listOf("ios32", "ios64", "iosX64")
     }
 }

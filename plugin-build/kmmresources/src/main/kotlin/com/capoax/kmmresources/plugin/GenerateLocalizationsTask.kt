@@ -30,6 +30,10 @@ abstract class GenerateLocalizationsTask : DefaultTask() {
     abstract val androidSourceFolder: Property<String>
 
     @get:Input
+    @get:Option(option = "iosSourceFolder", description = "The source folder to generate the localizations class for iOS. Defaults to iosArm%Main, but some multiplatform projects use ios%Main. The % symbol will be replaced with 32 or 64. The X64 target for simulator is always iosX64Main.")
+    abstract val iosSourceFolder: Property<String>
+
+    @get:Input
     @get:Option(option = "packageName", description = "The package for the generated code")
     abstract val packageName: Property<String>
 
@@ -57,6 +61,7 @@ abstract class GenerateLocalizationsTask : DefaultTask() {
             androidApplicationId = androidApplicationId.get(),
             defaultLanguage = defaultLanguage.get(),
             androidSourceFolder = androidSourceFolder.get(),
+            iosSourceFolder = iosSourceFolder.get(),
             packageName = packageName.get(),
             androidStringsPrefix = androidStringsPrefix.get(),
             srcFolder = srcFolder.get(),

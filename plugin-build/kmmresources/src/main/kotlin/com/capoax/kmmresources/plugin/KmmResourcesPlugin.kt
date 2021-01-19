@@ -27,6 +27,7 @@ class KmmResourcesPlugin: Plugin<Project> {
             it.androidApplicationId.set(extension.androidApplicationId)
             it.defaultLanguage.set(extension.defaultLanguage)
             it.androidSourceFolder.set(extension.androidSourceFolder)
+            it.iosSourceFolder.set(extension.iosSourceFolder)
             it.input.set(extension.input)
             it.output.set(extension.output)
             it.packageName.set(extension.packageName)
