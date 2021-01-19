@@ -5,7 +5,7 @@ package com.example.project
 import kotlinx.browser.window
 
 var currentLanguage: String? = null
-val fallbackLanguage = "en"
+val fallbackLanguage = "nl"
 
 private fun getString(key: String, vararg formatArgs: String): String {
     val browserLanguage = window.navigator.languages.firstOrNull()

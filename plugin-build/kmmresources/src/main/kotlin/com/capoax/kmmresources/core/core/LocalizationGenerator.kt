@@ -9,7 +9,7 @@ class LocalizationGenerator(
     val input: InputStream,
     val output: File,
     val androidApplicationId: String,
-    val androidDefaultLanguage: String = "en",
+    val defaultLanguage: String = "en",
     val androidSourceFolder: String = "main",
     val packageName: String?,
     val androidStringsPrefix: String = "generated_",
@@ -24,7 +24,7 @@ class LocalizationGenerator(
 
     fun generate() {
         val contents = YamlParser(input).parse()
-        val commonGenerated = CommonGenerator(contents, androidApplicationId, packageName).generate()
+        val commonGenerated = CommonGenerator(contents, androidApplicationId, packageName, defaultLanguage).generate()
         writeCommon(commonGenerated.generated)
         writeAndroid(commonGenerated.androidPlatformGenerator.generatedActual, androidSourceFolder)
         writeAndroidResources(commonGenerated.androidPlatformGenerator.generated, androidSourceFolder)
@@ -68,7 +68,7 @@ class LocalizationGenerator(
         val commonMainFolder = commonSrc.resolve(androidSourceFolder).resolve("res")
         Files.createDirectories(commonMainFolder.toPath())
         contents.forEach { (lang, contents) ->
-            val valuesFolderName = if (lang == androidDefaultLanguage) "values" else "values-${lang}"
+            val valuesFolderName = if (lang == defaultLanguage) "values" else "values-${lang}"
             val langFolder = commonMainFolder.resolve(valuesFolderName)
             Files.createDirectories(langFolder.toPath())
             val localizationFile = langFolder.resolve("${androidStringsPrefix}strings.xml")

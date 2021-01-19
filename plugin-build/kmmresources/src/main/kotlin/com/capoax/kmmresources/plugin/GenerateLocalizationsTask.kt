@@ -22,8 +22,8 @@ abstract class GenerateLocalizationsTask : DefaultTask() {
     abstract val androidApplicationId: Property<String>
 
     @get:Input
-    @get:Option(option = "androidDefaultLanguage", description = "The default locale in Android, determines which language is in the values/strings.xml file")
-    abstract val androidDefaultLanguage: Property<String>
+    @get:Option(option = "defaultLanguage", description = "The default locale. Used in Android to determine which language is in the values/strings.xml file. Used by JS as fallback language when no other language could be determined.")
+    abstract val defaultLanguage: Property<String>
 
     @get:Input
     @get:Option(option = "androidSourceFolder", description = "The source folder to generate the localizations class for Android. Defaults to main, but some multiplatform projects use androidMain.")
@@ -55,7 +55,7 @@ abstract class GenerateLocalizationsTask : DefaultTask() {
             input = FileInputStream(input.get()),
             output = output.get(),
             androidApplicationId = androidApplicationId.get(),
-            androidDefaultLanguage = androidDefaultLanguage.get(),
+            defaultLanguage = defaultLanguage.get(),
             androidSourceFolder = androidSourceFolder.get(),
             packageName = packageName.get(),
             androidStringsPrefix = androidStringsPrefix.get(),

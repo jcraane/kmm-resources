@@ -2,13 +2,14 @@ package com.capoax.kmmresources.core
 
 data class JSPlatformGenerator(
         private val packageDeclaration: String?,
+        private val defaultLanguage: String,
         override val generated: MutableMap<String, String> = mutableMapOf(),
         override var generatedActual: String = """
 $packageDeclaration
 import kotlinx.browser.window
 
 var currentLanguage: String? = null
-val fallbackLanguage = "en"
+val fallbackLanguage = "$defaultLanguage"
 
 private fun getString(key: String, vararg formatArgs: String): String {
     val browserLanguage = window.navigator.languages.firstOrNull()
@@ -30,7 +31,7 @@ private fun getString(key: String, vararg formatArgs: String): String {
     override fun generateLocalization(key: String, value: LocalizationValue, language: String) {
         if (generated[language] == null) {
             generated[language] = """
-// Generated ${language} localization file\n
+// Generated $language localization file\n
 $packageDeclaration
 internal fun localizations_$language(): Map<String, String> {
     val localizations = mutableMapOf<String, String>()
