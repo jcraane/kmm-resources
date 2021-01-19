@@ -15,9 +15,10 @@ data class CommonGenerated(
 
         val iOSPlatformGenerator: PlatformGenerator = IOSPlatformGenerator(packageDeclaration),
         val androidPlatformGenerator: PlatformGenerator = AndroidPlatformGenerator(packageDeclaration, androidRPackage),
-        val jvmPlatformGenerator: PlatformGenerator = JVMPlatformGenerator(packageDeclaration)
+        val jvmPlatformGenerator: PlatformGenerator = JVMPlatformGenerator(packageDeclaration),
+        val jsPlatformGenerator: PlatformGenerator = JSPlatformGenerator(packageDeclaration)
 ) {
-    val platformGenerators: List<PlatformGenerator> get() = listOf(iOSPlatformGenerator, androidPlatformGenerator, jvmPlatformGenerator)
+    val platformGenerators: List<PlatformGenerator> get() = listOf(iOSPlatformGenerator, androidPlatformGenerator, jvmPlatformGenerator, jsPlatformGenerator)
 
     internal fun generate() {
         if (packageDeclaration != null) {

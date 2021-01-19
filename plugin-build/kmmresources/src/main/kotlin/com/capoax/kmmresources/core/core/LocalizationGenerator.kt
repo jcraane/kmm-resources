@@ -31,6 +31,8 @@ class LocalizationGenerator(
         writeIOS(commonGenerated.iOSPlatformGenerator.generatedActual)
         writeIOSResources(commonGenerated.iOSPlatformGenerator.generated)
         writeJVM(commonGenerated.jvmPlatformGenerator.generatedActual)
+        writeJS(commonGenerated.jsPlatformGenerator.generatedActual)
+        writeJSResources(commonGenerated.jsPlatformGenerator.generated)
     }
 
     private fun writeCommon(contents: String) = contents.writeTo("common")
@@ -78,6 +80,23 @@ class LocalizationGenerator(
     }
 
     private fun writeJVM(contents: String) = contents.writeTo("jvm")
+
+    private fun writeJS(contents: String) = contents.writeTo("js")
+
+    private fun writeJSResources(contents: Map<String, String>) {
+        var mainFolder = commonSrc.resolve("jsMain").resolve("kotlin")
+        packageName?.split('.')?.forEach { subfolder ->
+            mainFolder = mainFolder.resolve(subfolder)
+        }
+        Files.createDirectories(mainFolder.toPath())
+        contents.forEach { (lang, contents) ->
+            val langFile = mainFolder.resolve("KMMResourcesLocalization_${lang}.kt")
+            langFile.delete()
+            langFile.writeText(contents)
+
+            println("Generated ${langFile.path}")
+        }
+    }
 
     private fun String.writeTo(target: String? = null) {
         var mainFolder = commonSrc.resolve(target?.let { "${it}Main" } ?: "main").resolve("kotlin")
