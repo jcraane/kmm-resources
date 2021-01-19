@@ -25,7 +25,10 @@ actual fun L.ExampleContent.Pages.Page1.body(): String = getString("l.exampleCon
 actual fun L.ExampleContent.Pages.Page1.title(): String = getString("l.exampleContent.pages.page1.title")
 actual fun L.ExampleContent.Pages.Page2.body(): String = getString("l.exampleContent.pages.page2.body")
 actual fun L.ExampleContent.Pages.Page2.title(): String = getString("l.exampleContent.pages.page2.title")
-actual fun L.ExampleContent.Pages.Page3.Body.checkmarks(): List<String> = emptyList()
+actual fun L.ExampleContent.Pages.Page3.Body.checkmarks(): List<String> = listOf(
+  getString("l.exampleContent.pages.page3.body.checkmarks0"),
+  getString("l.exampleContent.pages.page3.body.checkmarks1")
+)
 actual fun L.ExampleContent.Pages.Page3.title(): String = getString("l.exampleContent.pages.page3.title")
 actual fun L.General.ampersand1(): String = getString("l.general.ampersand1")
 actual fun L.General.ampersand2(): String = getString("l.general.ampersand2")

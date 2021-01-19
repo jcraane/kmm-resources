@@ -58,7 +58,17 @@ internal fun localizations_$language(): Map<String, String> {
     }
 
     override fun generateActualList(function: String, path: List<String>, name: String, values: List<Map<String, String>>) {
-        generatedActual += "actual fun ${function}: List<String> = emptyList()\n"
+        val id = id(path, name)
+        generatedActual += "actual fun ${function}: List<String> = listOf(\n"
+
+        values.forEachIndexed { index, _ ->
+            if (index > 0) {
+                generatedActual += ",\n"
+            }
+            generatedActual += "  getString(\"${id}${index}\")"
+        }
+        generatedActual += "\n)\n"
+
     }
 
     override fun generateActualObjectList(function: String, path: List<String>, name: String) {
