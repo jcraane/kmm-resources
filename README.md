@@ -180,7 +180,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ## Usage
 
-All projects always use the same YAML file, as configured in the plugin, that contains all localized strings. Below the usage for each platform. Check the [Samples](## Samples) section for YAML samples of the localization file.
+All projects always use the same YAML file, as configured in the plugin, that contains all localized strings. Below the usage for each platform. Check the [Samples](##samples) section for YAML samples of the localization file.
 
 ### Android
 
