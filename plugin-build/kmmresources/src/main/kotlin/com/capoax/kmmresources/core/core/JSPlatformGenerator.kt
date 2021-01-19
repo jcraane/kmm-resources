@@ -49,8 +49,6 @@ internal fun localizations_$language(): Map<String, String> {
     }
 
     override fun generateActual(function: String, path: List<String>, name: String, numberOfArguments: Int) {
-//        generatedActual += "actual fun ${function}: String = \"\"\n"
-
         val id = id(path, name)
         val varArgs = (0 until numberOfArguments).map { ", value${it}" }.joinToString("")
 
