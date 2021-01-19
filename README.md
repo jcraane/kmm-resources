@@ -180,6 +180,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ## Usage
 
+All projects always use the same YAML file, as configured in the plugin, that contains all localized strings. Below the usage for each platform. Check the [Samples](## Samples) section for YAML samples of the localization file.
+
 ### Android
 
 The generated localization files contains two parts:
@@ -265,7 +267,34 @@ Now you can access strings as follows:
 let string = L.c.general.button.ok()
 ```
 
+### Javascript
+
+Since Javascript is lacking a standard localization method the tool is simply generating a single map that contains all localized strings for all languages.
+
+Just like on iOS and Android, to access the resources from code use the generated L class like in the following example:
+
+```kotlin
+L.greetings.hello()
+```
+
+The actual implementation of this will fetch the correct string based on the current language (see next section).
+
+#### Language resolution
+
+The current language will be resolved using the following steps:
+
+1. Manually set the `currentLanguage` variable that's generated in the `KMMResourcesLocalization.kt`. This can be done for example from pressing a language button on your website which can then be remembered in a cookie or local storage. By default `currentLanguage` is `null` and once set will overwrite the option below.
+
+2. If `currentLanguage` is `null`, `window.navigator.languages` will be evaluated and the first language is this array will be used as language. This should be supported by all modern browsers.
+
+In case a full ISO language and country classifier is used, such as `en-US`, both `en-US` and `en` will be used to find matching strings.
+
+In case the above methods do not find a matching string, the `defaultLanguage` configured for the plugin will be used as fallback language. For example if the `defaultLanguage` is `en` and the browser `window.navigator.languages` returns an unsupported language such as `nl_NL`, then `en` will be used as fallback language.
+
+
 ## Samples
+
+Samples of the YAML localization file.
 
 ### Simple strings
 
@@ -459,27 +488,3 @@ val objects = L.myView.myList
 print(objects[1].title()) // Features
 print(objects[1].subtitle()) // Subtitle of features
 ```
-
-### Javascript
-
-Since Javascript is lacking a standard localization method the tool is simply generating a single map that contains all localized strings for all languages.
-
-Just like on iOS and Android, to access the resources from code use the generated L class like in the following example:
-
-```kotlin
-L.greetings.hello()
-```
-
-The actual implementation of this will fetch the correct string based on the current language (see next section).
-
-#### Language resolution
-
-The current language will be resolved using the following steps:
-
-1. Manually set the `currentLanguage` variable that's generated in the `KMMResourcesLocalization.kt`. This can be done for example from pressing a language button on your website which can then be remembered in a cookie or local storage. By default `currentLanguage` is `null` and once set will overwrite the option below.
-
-2. If `currentLanguage` is `null`, `window.navigator.languages` will be evaluated and the first language is this array will be used as language. This should be supported by all modern browsers.
-
-In case a full ISO language and country classifier is used, such as `en-US`, both `en-US` and `en` will be used to find matching strings.
-
-In case the above methods do not find a matching string, the `defaultLanguage` configured for the plugin will be used as fallback language. For example if the `defaultLanguage` is `en` and the browser `window.navigator.languages` returns an unsupported language such as `nl_NL`, then `en` will be used as fallback language.
