@@ -40,7 +40,11 @@ internal fun localizations_$language(): Map<String, String> {
 
         val stringValue = value.replacedArgumentsValue("\\$@")
         var generatedLanguage = generated[language]!!
-        generatedLanguage += "\tlocalizations[\"${key}\"] = \"${stringValue}\";\n"
+        if (stringValue.lines().size > 1) {
+            generatedLanguage += "\tlocalizations[\"${key}\"] = \"\"\"\n${stringValue.trim()}\n\"\"\"\n"
+        } else {
+            generatedLanguage += "\tlocalizations[\"${key}\"] = \"${stringValue}\"\n"
+        }
         generated[language] = generatedLanguage
     }
 
