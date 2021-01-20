@@ -28,7 +28,9 @@ See the [Plugin page](https://plugins.gradle.org/plugin/dev.jamiecraane.plugins.
 
 When developing this plugin (or when forking this plugin and adding code to it) you may want to test this plugin in a project not included in this composite build. To do this do the following:
 
-Navigate to the plugin-build folder and execute ```./gradlew :kmmresources:publishToMavenLocal```. This task publishes to the local maven repository.
+Navigate to the plugin-build folder and execute ```./gradlew :kmmresources:publishToMavenLocal```. This task publishes to the local maven repository.The local Maven repository stores build artefacts used by Maven and Gradle and can be found at ~/.m2/repository
+
+Navigate to the ~/.m2/repository/dev/jamiecraane/plugins/kmmresources to see the published plugins.
 
 In the project in which the plugin must be integrated do the following:
 
@@ -42,21 +44,11 @@ pluginManagement {
 }
 ```
 
-Add the dependency on the plugin the repositories section of the buildscript:
-
-```kotlin
-buildscript {
-    dependencies {
-        classpath("dev.jamiecraane.plugins:kmmresources:1.0.0-alpha05")
-    }
-}
-```
-
 Apply the plugin:
 
 ```kotlin
 plugins {
-    id("com.capoax.kmmresources") version "1.0.0-alpha05"
+    id("dev.jamiecraane.plugins.kmmresources") version "1.0.0-alpha05"
 }
 ```
 
