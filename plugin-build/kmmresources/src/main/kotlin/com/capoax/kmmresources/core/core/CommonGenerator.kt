@@ -55,6 +55,25 @@ data class CommonGenerated(
         return generated
     }
 
+    private fun generateGetOperator(children: Map<*, *>, indentationLevel: Int): String {
+        val childrenOfChildren = children.mapNotNull { if (it.value?.asStringToStringMap?.let { it.values.all { LocalizationValue(it).numberOfArguments == 0 } } == true) it.key as? String else null }
+        return if (childrenOfChildren.isNotEmpty()) {
+            val body = childrenOfChildren.map { """
+            |${indentationLevel.indentation}  "$it" -> ${it}()
+            """.trimMargin()
+            }.joinToString("\n")
+            """
+            |${indentationLevel.indentation}operator fun get(key: String): String? = when(key) {
+            |$body
+            |${indentationLevel.indentation}  else -> null
+            |${indentationLevel.indentation}}
+            |
+            """.trimMargin()
+        } else {
+            ""
+        }
+    }
+
     private fun generateClass(name: String, parentPath: List<String>, rawChildren: Any, indentationLevel: Int = 1): String {
         var children = rawChildren
         if (children is Map<*, *>) {
@@ -91,9 +110,10 @@ data class CommonGenerated(
                 children.toSortedMap().onEachIndexed { _, entry ->
                     body += generateClass(entry.key, path, entry.value, childIndentationLevel)
                 }
+                body += generateGetOperator(children, childIndentationLevel)
 
                 if (childClasses.isEmpty()) {
-                    generated += "class ${className}\n"
+                    generated += "class ${className} {\n"
                 } else {
                     generated += "data class ${className}(\n"
 
@@ -119,9 +139,10 @@ data class CommonGenerated(
                     }
 
                     generated += ") {\n"
-                    generated += body
-                    generated += "${indentationLevel.indentation}}\n"
                 }
+
+                generated += body
+                generated += "${indentationLevel.indentation}}\n"
 
                 return generated
             }

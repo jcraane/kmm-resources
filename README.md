@@ -191,6 +191,8 @@ To access the resources from code use the generated L class like in the followin
 
 ```kotlin
 L.greetings.hello()
+// or
+L.greetings["hello"]
 ```
 
 The hello function is an expected function in commonMain which has an actual implementation for every target. In Android the actual function looksup the resources in the generated strings xml files.

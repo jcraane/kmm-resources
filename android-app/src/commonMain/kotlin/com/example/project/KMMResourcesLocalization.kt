@@ -15,21 +15,63 @@ class L {
       val page1: Page1 = Page1(),
       val page2: Page2 = Page2(),
       val page3: Page3 = Page3()) {
-      class Page1
-      class Page2
+      class Page1 {
+        operator fun get(key: String): String? = when(key) {
+          "title" -> title()
+          "body" -> body()
+          else -> null
+        }
+      }
+      class Page2 {
+        operator fun get(key: String): String? = when(key) {
+          "title" -> title()
+          "body" -> body()
+          else -> null
+        }
+      }
       data class Page3(
         val body: Body = Body()) {
-        class Body
+        class Body {
+        }
+        operator fun get(key: String): String? = when(key) {
+          "title" -> title()
+          else -> null
+        }
       }
     }
   }
   data class General(
     val button: Button = Button(),
     val error: Error = Error()) {
-    class Button
-    class Error
+    class Button {
+      operator fun get(key: String): String? = when(key) {
+        "ok" -> ok()
+        else -> null
+      }
+    }
+    class Error {
+      operator fun get(key: String): String? = when(key) {
+        "invalidField" -> invalidField()
+        "tryAgainLater" -> tryAgainLater()
+        else -> null
+      }
+    }
+    operator fun get(key: String): String? = when(key) {
+      "yes" -> yes()
+      "no" -> no()
+      "iDontKnow" -> iDontKnow()
+      "ampersand1" -> ampersand1()
+      "ampersand2" -> ampersand2()
+      "ampersand3" -> ampersand3()
+      else -> null
+    }
   }
-  class Greetings
+  class Greetings {
+    operator fun get(key: String): String? = when(key) {
+      "hello" -> hello()
+      else -> null
+    }
+  }
   data class Listofobjects(
     val categories: Categories = Categories()) {
     data class Categories(
@@ -37,13 +79,28 @@ class L {
       data class Samplecategory(
         val content: List<Content> = listOf(Content(0), Content(1))
 ) {
+        operator fun get(key: String): String? = when(key) {
+          "detailedDescription" -> detailedDescription()
+          else -> null
+        }
         data class Content(val index: Int)
       }
     }
   }
   data class Unit(
     val power: Power = Power()) {
-    class Power
+    class Power {
+      operator fun get(key: String): String? = when(key) {
+        "u3" -> u3()
+        "u6" -> u6()
+        "u9" -> u9()
+        else -> null
+      }
+    }
+    operator fun get(key: String): String? = when(key) {
+      "gas" -> gas()
+      else -> null
+    }
   }
 }
 
