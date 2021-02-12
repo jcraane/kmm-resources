@@ -11,7 +11,7 @@ class LocalizationGenerator(
     val androidApplicationId: String,
     val defaultLanguage: String = "en",
     val androidSourceFolder: String = "main",
-    val iosSourceFolder: String = "iosArm%Main",
+    val iosSourceFolder: String = "iosMain",
     val packageName: String?,
     val androidStringsPrefix: String = "generated_",
     val srcFolder: String = "src",
@@ -23,21 +23,14 @@ class LocalizationGenerator(
         src
     }()
 
-
-    private val iosTargets: List<String> = {
-        val targets = mutableListOf("iosX64")
-        targets += listOf(32, 64).map { iosSourceFolder.replace("%", it.toString()) }
-        targets
-    }()
-
     fun generate() {
         val contents = YamlParser(input).parse()
         val commonGenerated = CommonGenerator(contents, androidApplicationId, packageName, defaultLanguage).generate()
         writeCommon(commonGenerated.generated)
-        if (writeAndroid(commonGenerated.androidPlatformGenerator.generatedActual, androidSourceFolder)) {
+        if (commonGenerated.androidPlatformGenerator.generatedActual.writeTo(androidSourceFolder)) {
             writeAndroidResources(commonGenerated.androidPlatformGenerator.generated, androidSourceFolder)
         }
-        if (writeIOS(commonGenerated.iOSPlatformGenerator.generatedActual)) {
+        if (commonGenerated.iOSPlatformGenerator.generatedActual.writeTo(iosSourceFolder)) {
             writeIOSResources(commonGenerated.iOSPlatformGenerator.generated)
         }
         writeJVM(commonGenerated.jvmPlatformGenerator.generatedActual)
@@ -47,10 +40,6 @@ class LocalizationGenerator(
     }
 
     private fun writeCommon(contents: String) = contents.writeTo("common")
-
-    private fun writeIOS(contents: String) = iosTargets.map { target ->
-        contents.writeTo(target)
-    }.contains(true)
 
     private fun writeIOSResources(contents: Map<String, String>) {
         val commonMainFolder = commonSrc.resolve("commonMain").resolve("resources").resolve("ios")
@@ -65,8 +54,6 @@ class LocalizationGenerator(
             println("Generated ${localizationFile.path}")
         }
     }
-
-    private fun writeAndroid(contents: String, target: String) = contents.writeTo(target)
 
     private fun writeAndroidResources(contents: Map<String, String>, androidSourceFolder: String) {
         val commonMainFolder = commonSrc.resolve(androidSourceFolder).resolve("res")

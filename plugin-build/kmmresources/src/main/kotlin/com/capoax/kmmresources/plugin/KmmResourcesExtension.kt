@@ -17,7 +17,7 @@ abstract class KmmResourcesExtension @Inject constructor(project: Project) {
     val defaultLanguage: Property<String> = objects.property(String::class.java)
 
     val iosSourceFolder: Property<String> = objects.property(String::class.java).apply {
-        set("iosArm%Main")
+        set("iosMain")
     }
 
     val androidSourceFolder: Property<String> = objects.property(String::class.java).apply {
