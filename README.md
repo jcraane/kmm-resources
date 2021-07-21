@@ -18,7 +18,7 @@ Add the following plugin definition to start using the plugin:
 
 ```kotlin
 plugins {
-  id "dev.jamiecraane.plugins.kmmresources" version "1.0.0-alpha05"
+  id "dev.jamiecraane.plugins.kmmresources" version "1.0.0-alpha06"
 }
 ```
 
@@ -48,7 +48,7 @@ Apply the plugin:
 
 ```kotlin
 plugins {
-    id("dev.jamiecraane.plugins.kmmresources") version "1.0.0-alpha05"
+    id("dev.jamiecraane.plugins.kmmresources") version "1.0.0-alpha06"
 }
 ```
 
@@ -66,6 +66,7 @@ kmmResourcesConfig {
     srcFolder.set("src") // Optional, defaults to 'src'
     generatedClassName.set("KMMResourcesLocalization.kt") // Optional, defaults to 'KMMResourcesLocalization.kt'
     androidStringsPrefix.set("_generated") // Optional, defaults to '_generated'
+    androidSourceFolder.set("main") // The location of the android sources in the shared module (Optional, defaults to androidMain)
 }
 
 val plutil = tasks["executePlutil"] // This one is only needed for iOS
@@ -481,4 +482,15 @@ Usage:
 val objects = L.myView.myList
 print(objects[1].title()) // Features
 print(objects[1].subtitle()) // Subtitle of features
+```
+
+## Common issues
+
+# Android sources not generated
+Please check the folder in which the Android sources reside. For a new KMM project htis defaults to androidMain. The plugin also defaults to androidMain. If the Android sources reside in a different folder please cconfigure this using the following property:
+
+```kotlin
+kmmResourcesConfig {
+    androidSourceFolder.set("main") // The location of the android sources in the shared module (Optional, defaults to androidMain)
+}
 ```

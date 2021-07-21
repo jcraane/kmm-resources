@@ -21,7 +21,7 @@ abstract class KmmResourcesExtension @Inject constructor(project: Project) {
     }
 
     val androidSourceFolder: Property<String> = objects.property(String::class.java).apply {
-        set("main")
+        set("androidMain")
     }
 
     val packageName: Property<String> = objects.property(String::class.java)

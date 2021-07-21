@@ -89,6 +89,7 @@ dependencies {
 
 kmmResourcesConfig {
     androidApplicationId.set("nl.jcraane.androidapp")
+    androidSourceFolder.set("main")
     packageName.set("com.example.project")
     defaultLanguage.set("nl")
     input.set(File(project.projectDir.path, "generic.yaml"))
@@ -119,6 +120,7 @@ val packForXcode by tasks.creating(Sync::class) {
     into(targetDir)
 
     doLast {
+        println("COPY TO  = ${targetDir}/shared.framework")
         copy {
             from("${project.rootDir}/android-app/src/commonMain/resources/ios")
             into("${targetDir}/shared.framework")

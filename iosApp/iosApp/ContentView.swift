@@ -7,7 +7,10 @@ func greet() -> String {
 
 struct ContentView: View {
     var body: some View {
-        Text(greet())
+        VStack {
+            Text(greet())
+            Text(L.Companion().greetings.hello())
+        }
     }
 }
 
