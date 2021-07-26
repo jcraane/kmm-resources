@@ -18,7 +18,7 @@ Add the following plugin definition to start using the plugin:
 
 ```kotlin
 plugins {
-  id "dev.jamiecraane.plugins.kmmresources" version "1.0.0-alpha06"
+  id "dev.jamiecraane.plugins.kmmresources" version "1.0.0-alpha07"
 }
 ```
 
@@ -48,7 +48,7 @@ Apply the plugin:
 
 ```kotlin
 plugins {
-    id("dev.jamiecraane.plugins.kmmresources") version "1.0.0-alpha06"
+    id("dev.jamiecraane.plugins.kmmresources") version "1.0.0-alpha07"
 }
 ```
 
@@ -67,6 +67,7 @@ kmmResourcesConfig {
     generatedClassName.set("KMMResourcesLocalization.kt") // Optional, defaults to 'KMMResourcesLocalization.kt'
     androidStringsPrefix.set("_generated") // Optional, defaults to '_generated'
     androidSourceFolder.set("main") // The location of the android sources in the shared module (Optional, defaults to androidMain)
+    useDefaultTranslationIfNotInitialized.set(true) // When true, outputs the texts of the default language in the Android generated actual declarations instead of an empty String
 }
 
 val plutil = tasks["executePlutil"] // This one is only needed for iOS
@@ -212,6 +213,12 @@ class MyApplication : Application() {
     }
 }
 ```
+
+*Return default language resource in Android instead of empty String if Android context is not initialized*
+
+By setting the option useDefaultTranslationIfNotInitialized in the kmmResourceConfig (in Gradle build) to true, the Android actual declarations will output
+the texsts of the default language instead of an empty String if the Android context is not initialized. This can be useful in plain unit tests
+where no Android context is available and you want to test that a specific String is returned from the common localization methods.
 
 ### iOS
 

@@ -9,6 +9,7 @@ actual fun L.ExampleContent.Pages.Page3.title(): String = ""
 actual fun L.General.ampersand1(): String = ""
 actual fun L.General.ampersand2(): String = ""
 actual fun L.General.ampersand3(): String = ""
+actual fun L.General.basiclist(): List<String> = emptyList()
 actual fun L.General.Button.ok(): String = ""
 actual fun L.General.Error.invalidField(): String = ""
 actual fun L.General.Error.tryAgainLater(): String = ""

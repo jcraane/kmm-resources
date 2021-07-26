@@ -34,6 +34,7 @@ class KmmResourcesPlugin: Plugin<Project> {
             it.androidStringsPrefix.set(extension.androidStringsPrefix)
             it.srcFolder.set(extension.srcFolder)
             it.generatedClassName.set(extension.generatedClassName)
+            it.useDefaultTranslationIfNotInitialized.set(extension.useDefaultTranslationIfNotInitialized)
         }
     }
 }

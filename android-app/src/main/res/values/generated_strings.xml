@@ -10,6 +10,8 @@
 	<string name="l.general.ampersand1">Brood &amp; boter</string>
 	<string name="l.general.ampersand2">Brood &amp; boter</string>
 	<string name="l.general.ampersand3">Nota &amp; betalen</string>
+	<string name="l.general.basiclist0">optie 1</string>
+	<string name="l.general.basiclist1">optie 2</string>
 	<string name="l.general.button.ok">OK</string>
 	<string name="l.general.error.invalidField">Ongeldige waarde</string>
 	<string name="l.general.error.tryAgainLater">Controleer de internetverbinding en probeer het opnieuw.</string>

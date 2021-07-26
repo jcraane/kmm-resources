@@ -35,6 +35,13 @@ general:
     tryAgainLater:
       nl: "Controleer de internetverbinding en probeer het opnieuw."
       en: "Check your internet connection and try again."
+  basiclist:
+    -
+      nl: optie 1
+      en: option 1
+    -
+      nl: optie 2
+      en: option 2
 unit:
   gas:
     nl: "m³"

@@ -114,6 +114,7 @@ expect fun L.ExampleContent.Pages.Page3.title(): String
 expect fun L.General.ampersand1(): String
 expect fun L.General.ampersand2(): String
 expect fun L.General.ampersand3(): String
+expect fun L.General.basiclist(): List<String>
 expect fun L.General.Button.ok(): String
 expect fun L.General.Error.invalidField(): String
 expect fun L.General.Error.tryAgainLater(): String

@@ -49,6 +49,10 @@ abstract class GenerateLocalizationsTask : DefaultTask() {
     @get:Option(option = "generatedClassName", description = "The name of the generated class containing the expact/actual definitions. Defaults to 'KMMResourcesLocalization.kt'")
     abstract val generatedClassName: Property<String>
 
+    @get:Input
+    @get:Option(option = "useDefaultTranslationIfNotInitialized", description = "If true, insert the default translation in the android actual implementation instead of an empry string. This can be useful in unit tests if no android context is available. Defaults to false.")
+    abstract val useDefaultTranslationIfNotInitialized: Property<Boolean>
+
     init {
         description = "Generate localizations task"
     }
@@ -65,7 +69,8 @@ abstract class GenerateLocalizationsTask : DefaultTask() {
             packageName = packageName.get(),
             androidStringsPrefix = androidStringsPrefix.get(),
             srcFolder = srcFolder.get(),
-            generatedClassName = generatedClassName.get()
+            generatedClassName = generatedClassName.get(),
+            useDefaultTranslationIfNotInitialized = useDefaultTranslationIfNotInitialized.get()
         )
         generator.generate()
     }

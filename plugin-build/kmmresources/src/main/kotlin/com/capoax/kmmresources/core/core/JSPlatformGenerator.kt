@@ -49,14 +49,14 @@ internal fun localizations_$language(): Map<String, String> {
         generated[language] = generatedLanguage
     }
 
-    override fun generateActual(function: String, path: List<String>, name: String, numberOfArguments: Int) {
+    override fun generateActual(function: String, path: List<String>, name: String, numberOfArguments: Int, defaultTranslation: String) {
         val id = id(path, name)
         val varArgs = (0 until numberOfArguments).map { ", value${it}" }.joinToString("")
 
         generatedActual += "actual fun ${function}: String = getString(\"${id}\"${varArgs})\n"
     }
 
-    override fun generateActualList(function: String, path: List<String>, name: String, values: List<Map<String, String>>) {
+    override fun generateActualList(function: String, path: List<String>, name: String, values: List<Map<String, String>>, defaultLanguage: String) {
         val id = id(path, name)
         generatedActual += "actual fun ${function}: List<String> = listOf(\n"
 
@@ -70,7 +70,7 @@ internal fun localizations_$language(): Map<String, String> {
 
     }
 
-    override fun generateActualObjectList(function: String, path: List<String>, name: String) {
+    override fun generateActualObjectList(function: String, path: List<String>, name: String, defaultTranslation: String) {
         val id = (path + listOf("${name}.\$index") + listOf(function)).joinToString(".")
         val functionName = "${(path.map { it.capitalize() } + listOf(name.capitalize()) + listOf(function)).joinToString(".")}()"
         generatedActual += "actual fun ${functionName}: String = getString(\"${id}\")\n"

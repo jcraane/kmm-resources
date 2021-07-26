@@ -15,7 +15,8 @@ class LocalizationGenerator(
     val packageName: String?,
     val androidStringsPrefix: String = "generated_",
     val srcFolder: String = "src",
-    val generatedClassName: String = "KMMResourcesLocalization.kt") {
+    val generatedClassName: String = "KMMResourcesLocalization.kt",
+    private val useDefaultTranslationIfNotInitialized: Boolean) {
 
     val commonSrc: File get() = {
         val src = output.resolve(srcFolder)
@@ -25,7 +26,7 @@ class LocalizationGenerator(
 
     fun generate() {
         val contents = YamlParser(input).parse()
-        val commonGenerated = CommonGenerator(contents, androidApplicationId, packageName, defaultLanguage).generate()
+        val commonGenerated = CommonGenerator(contents, androidApplicationId, packageName, defaultLanguage, useDefaultTranslationIfNotInitialized).generate()
         writeCommon(commonGenerated.generated)
         if (commonGenerated.androidPlatformGenerator.generatedActual.writeTo(androidSourceFolder)) {
             writeAndroidResources(commonGenerated.androidPlatformGenerator.generated, androidSourceFolder)

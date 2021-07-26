@@ -20,6 +20,8 @@ internal fun localizations_nl(): Map<String, String> {
 	localizations["l.general.ampersand1"] = "Brood \u0026 boter"
 	localizations["l.general.ampersand2"] = "Brood & boter"
 	localizations["l.general.ampersand3"] = "Nota & betalen"
+	localizations["l.general.basiclist0"] = "optie 1"
+	localizations["l.general.basiclist1"] = "optie 2"
 	localizations["l.general.button.ok"] = "OK"
 	localizations["l.general.error.invalidField"] = "Ongeldige waarde"
 	localizations["l.general.error.tryAgainLater"] = "Controleer de internetverbinding en probeer het opnieuw."

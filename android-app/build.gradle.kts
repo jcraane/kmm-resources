@@ -94,6 +94,7 @@ kmmResourcesConfig {
     defaultLanguage.set("nl")
     input.set(File(project.projectDir.path, "generic.yaml"))
     output.set(project.projectDir)
+    useDefaultTranslationIfNotInitialized.set(true)
 }
 
 val plutil = tasks["executePlutil"]

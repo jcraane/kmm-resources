@@ -26,7 +26,7 @@ data class IOSPlatformGenerator(
         generated[language] = generatedLanguage
     }
 
-    override fun generateActual(function: String, path: List<String>, name: String, numberOfArguments: Int) {
+    override fun generateActual(function: String, path: List<String>, name: String, numberOfArguments: Int, defaultTranslation: String) {
         val id = id(path, name)
         val varArgs = (0 until numberOfArguments).map { ", value${it} as NSString" }.joinToString("")
 
@@ -40,7 +40,7 @@ data class IOSPlatformGenerator(
         """.trimMargin()
     }
 
-    override fun generateActualList(function: String, path: List<String>, name: String, values: List<Map<String, String>>) {
+    override fun generateActualList(function: String, path: List<String>, name: String, values: List<Map<String, String>>, defaultLanguage: String) {
         val id = id(path, name)
         generatedActual += "actual fun ${function}: List<String> = listOf(\n"
 
@@ -53,7 +53,7 @@ data class IOSPlatformGenerator(
         generatedActual += "\n)\n"
     }
 
-    override fun generateActualObjectList(function: String, path: List<String>, name: String) {
+    override fun generateActualObjectList(function: String, path: List<String>, name: String, defaultTranslation: String) {
         val id = (path + listOf("${name}.\$index") + listOf(function)).joinToString(".")
         val functionName = "${(path.map { it.capitalize() } + listOf(name.capitalize()) + listOf(function)).joinToString(".")}()"
         generatedActual +=

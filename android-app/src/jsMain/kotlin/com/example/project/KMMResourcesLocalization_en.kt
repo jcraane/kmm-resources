@@ -17,6 +17,8 @@ internal fun localizations_en(): Map<String, String> {
 	localizations["l.exampleContent.pages.page3.body.checkmarks0"] = "Available 24/7 by telephone in case of malfunctions"
 	localizations["l.exampleContent.pages.page3.body.checkmarks1"] = "Travel costs and labor included"
 	localizations["l.exampleContent.pages.page3.title"] = "Title page 3"
+	localizations["l.general.basiclist0"] = "option 1"
+	localizations["l.general.basiclist1"] = "option 2"
 	localizations["l.general.button.ok"] = "OK"
 	localizations["l.general.error.invalidField"] = "Invalid value"
 	localizations["l.general.error.tryAgainLater"] = "Check your internet connection and try again."

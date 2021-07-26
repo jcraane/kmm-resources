@@ -33,6 +33,10 @@ actual fun L.ExampleContent.Pages.Page3.title(): String = getString("l.exampleCo
 actual fun L.General.ampersand1(): String = getString("l.general.ampersand1")
 actual fun L.General.ampersand2(): String = getString("l.general.ampersand2")
 actual fun L.General.ampersand3(): String = getString("l.general.ampersand3")
+actual fun L.General.basiclist(): List<String> = listOf(
+  getString("l.general.basiclist0"),
+  getString("l.general.basiclist1")
+)
 actual fun L.General.Button.ok(): String = getString("l.general.button.ok")
 actual fun L.General.Error.invalidField(): String = getString("l.general.error.invalidField")
 actual fun L.General.Error.tryAgainLater(): String = getString("l.general.error.tryAgainLater")

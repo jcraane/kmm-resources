@@ -38,6 +38,11 @@ abstract class KmmResourcesExtension @Inject constructor(project: Project) {
         set("KMMResourcesLocalization.kt")
     }
 
+    val useDefaultTranslationIfNotInitialized: Property<Boolean> = objects.property(Boolean::class.java).apply {
+        set(false)
+    }
+
+
     companion object {
         const val NAME = "kmmResourcesConfig"
     }

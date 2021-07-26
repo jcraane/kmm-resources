@@ -1,5 +1,7 @@
 package com.capoax.kmmresources.core
 
+import com.capoax.kmmresources.extensions.isMultiline
+
 data class AndroidPlatformGenerator(
         private val packageDeclaration: String?,
         private val androidRPackage: String,
@@ -14,7 +16,8 @@ var localizationContext: Context? = null
 
 """
                 .trimIndent()
-        } ?: ""
+        } ?: "",
+        private val useDefaultTranslationIfNotInitialized: Boolean
 
 ): PlatformGenerator {
 
@@ -40,14 +43,16 @@ var localizationContext: Context? = null
         generated[language] = generatedLanguage
     }
 
-    override fun generateActual(function: String, path: List<String>, name: String, numberOfArguments: Int) {
+    override fun generateActual(function: String, path: List<String>, name: String, numberOfArguments: Int, defaultTranslation: String) {
         val id = id(path, name)
         val varArgs = (0 until numberOfArguments).map { ", value${it}" }.joinToString("")
-
-        generatedActual += "actual fun ${function}: String = localizationContext?.getString(R.string.${id}${varArgs}) ?: \"\"\n"
+        val stringDelimeter = getStringDelimeter(defaultTranslation)
+        generatedActual += "actual fun ${function}: String = localizationContext?.getString(R.string.${id}${varArgs}) ?: $stringDelimeter$defaultTranslation$stringDelimeter\n"
     }
 
-    override fun generateActualList(function: String, path: List<String>, name: String, values: List<Map<String, String>>) {
+    private fun getStringDelimeter(defaultTranslation: String) = if (defaultTranslation.isMultiline()) "\"\"\"" else "\""
+
+    override fun generateActualList(function: String, path: List<String>, name: String, values: List<Map<String, String>>, defaultLanguage: String) {
         val id = id(path, name)
         generatedActual += "actual fun ${function}: List<String> = listOf(\n"
 
@@ -55,19 +60,23 @@ var localizationContext: Context? = null
             if (index > 0) {
                 generatedActual += ",\n"
             }
-            generatedActual += "  localizationContext?.getString(R.string.${id}${index}) ?: \"\""
+            val defaultTranslation = values[index].getOrDefault(defaultLanguage, "")
+            val stringDelimeter = getStringDelimeter(defaultTranslation)
+            generatedActual += "  localizationContext?.getString(R.string.${id}${index}) ?: $stringDelimeter$defaultTranslation$stringDelimeter"
         }
         generatedActual += "\n)\n"
     }
 
-    override fun generateActualObjectList(function: String, path: List<String>, name: String) {
+    override fun generateActualObjectList(function: String, path: List<String>, name: String, defaultTranslation: String) {
         val id = (path + listOf("${name}.\$index") + listOf(function)).joinToString(".")
         val functionName = "${(path.map { it.capitalize() } + listOf(name.capitalize()) + listOf(function)).joinToString(".")}()"
+
+        val stringDelimeter = getStringDelimeter(defaultTranslation)
         generatedActual +=
                 """
                 |actual fun ${functionName}: String {
                 |   val context = localizationContext
-                |   return context?.getString(context.resources.getIdentifier("${id}", "string", context.packageName)) ?: ""
+                |   return context?.getString(context.resources.getIdentifier("${id}", "string", context.packageName)) ?: $stringDelimeter$defaultTranslation$stringDelimeter
                 |}
                 |
                 """.trimMargin()
