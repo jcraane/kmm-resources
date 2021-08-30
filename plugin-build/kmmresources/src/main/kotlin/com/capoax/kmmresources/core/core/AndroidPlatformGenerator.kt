@@ -98,7 +98,8 @@ var localizationContext: Context? = null
             "\\u0026" to "&amp;",
             "&" to "&amp;",
             "\n" to "\\n",
-            "%%" to "%"
+            "%%" to "%",
+            "'" to "\'"
         )
     }
 }
