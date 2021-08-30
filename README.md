@@ -4,6 +4,12 @@ Generator including Gradle plugin to generate KMM (Kotlin Multiplatform Mobile) 
 
 Although this plugin generates resources for both Android, iOS and Web, it is not mandatory to have both an Android, iOS or Web application present. For example, the Android app can be developed first using Kotlin Multiplatform Mobile and kmm-resources to which an iOS app is added later.
 
+## Upgrading
+
+### Upgrade to alpha08
+
+- As of version alpha08 the ' (single quote) does not need to be escaped in the yaml anymore. When updating to version alpha08 replace ```\'``` in your yaml file with ```'``` (single quote without escaping)**
+
 ## Prerequisites
 
 - If using this plugin for iOS, OSX is required since it depends on the plutil command line utility to convert Localizable.strings to a binary representation.
@@ -490,6 +496,8 @@ val objects = L.myView.myList
 print(objects[1].title()) // Features
 print(objects[1].subtitle()) // Subtitle of features
 ```
+
+
 
 ## Common issues
 
