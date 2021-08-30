@@ -18,7 +18,7 @@ Add the following plugin definition to start using the plugin:
 
 ```kotlin
 plugins {
-  id "dev.jamiecraane.plugins.kmmresources" version "1.0.0-alpha07"
+  id "dev.jamiecraane.plugins.kmmresources" version "1.0.0-alpha08"
 }
 ```
 
@@ -48,7 +48,7 @@ Apply the plugin:
 
 ```kotlin
 plugins {
-    id("dev.jamiecraane.plugins.kmmresources") version "1.0.0-alpha07"
+    id("dev.jamiecraane.plugins.kmmresources") version "1.0.0-alpha08"
 }
 ```
 

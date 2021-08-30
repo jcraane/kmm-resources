@@ -6,7 +6,7 @@ general:
   button:
     ok:
       nl: "OK"
-      en: "OK"
+      en: "O&'K"
   yes:
     nl: "Ja"
     en: "Yes"
@@ -18,7 +18,7 @@ general:
     en: >
         I
 
-        don\'t know
+        don't know
   ampersand1:
     nl: Brood \u0026 boter
   ampersand2:

@@ -19,12 +19,12 @@ internal fun localizations_en(): Map<String, String> {
 	localizations["l.exampleContent.pages.page3.title"] = "Title page 3"
 	localizations["l.general.basiclist0"] = "option 1"
 	localizations["l.general.basiclist1"] = "option 2"
-	localizations["l.general.button.ok"] = "OK"
+	localizations["l.general.button.ok"] = "O&'K"
 	localizations["l.general.error.invalidField"] = "Invalid value"
 	localizations["l.general.error.tryAgainLater"] = "Check your internet connection and try again."
 	localizations["l.general.iDontKnow"] = """
 I
-don\'t know
+don't know
 """
 	localizations["l.general.no"] = "No"
 	localizations["l.general.withParams"] = "A piece of %1$@ with a piece of %2$@"

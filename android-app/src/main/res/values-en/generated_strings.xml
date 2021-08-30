@@ -9,7 +9,7 @@
 	<string name="l.exampleContent.pages.page3.title">Title page 3</string>
 	<string name="l.general.basiclist0">option 1</string>
 	<string name="l.general.basiclist1">option 2</string>
-	<string name="l.general.button.ok">OK</string>
+	<string name="l.general.button.ok">O&amp;\'K</string>
 	<string name="l.general.error.invalidField">Invalid value</string>
 	<string name="l.general.error.tryAgainLater">Check your internet connection and try again.</string>
 	<string name="l.general.iDontKnow">I\ndon\'t know\n</string>
