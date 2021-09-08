@@ -95,6 +95,7 @@ kmmResourcesConfig {
     input.set(File(project.projectDir.path, "generic.yaml"))
     output.set(project.projectDir)
     useDefaultTranslationIfNotInitialized.set(true)
+    iosSourceFolder.set("iosX64Main")
 }
 
 val plutil = tasks["executePlutil"]
