@@ -43,6 +43,10 @@ actual fun L.General.ampersand3(): String {
     val localizedString = localizationBundle.localizedStringForKey("l.general.ampersand3", null, null)
     return NSString.localizedStringWithFormat(localizedString)
 }
+actual fun L.General.basiclist(): List<String> = listOf(
+  localizationBundle.localizedStringForKey("l.general.basiclist0", null, null),
+  localizationBundle.localizedStringForKey("l.general.basiclist1", null, null)
+)
 actual fun L.General.Button.ok(): String {
     val localizedString = localizationBundle.localizedStringForKey("l.general.button.ok", null, null)
     return NSString.localizedStringWithFormat(localizedString)

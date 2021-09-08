@@ -2,6 +2,7 @@ greetings:
   hello:
     nl: Hallo vanuit common code
     en: Hello from common code
+    pt-rBR: Hello from common code
 general:
   button:
     ok:

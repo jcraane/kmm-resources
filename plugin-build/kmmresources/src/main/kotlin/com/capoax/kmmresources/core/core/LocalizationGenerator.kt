@@ -18,6 +18,8 @@ class LocalizationGenerator(
     val generatedClassName: String = "KMMResourcesLocalization.kt",
     private val useDefaultTranslationIfNotInitialized: Boolean) {
 
+    private val iosLocaleRegex = Regex("-r")
+
     val commonSrc: File get() = {
         val src = output.resolve(srcFolder)
         Files.createDirectories(src.toPath())
@@ -46,7 +48,8 @@ class LocalizationGenerator(
         val commonMainFolder = commonSrc.resolve("commonMain").resolve("resources").resolve("ios")
         Files.createDirectories(commonMainFolder.toPath())
         contents.forEach { (lang, contents) ->
-            val langFolder = commonMainFolder.resolve("${lang}.lproj")
+            val cleanedLang = lang.replace(iosLocaleRegex, "-")
+            val langFolder = commonMainFolder.resolve("${cleanedLang}.lproj")
             Files.createDirectories(langFolder.toPath())
             val localizationFile = langFolder.resolve("Localizable.strings")
             localizationFile.delete()
