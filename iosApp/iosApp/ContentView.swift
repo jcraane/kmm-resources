@@ -8,8 +8,9 @@ func greet() -> String {
 struct ContentView: View {
     var body: some View {
         VStack {
-            Text(greet())
-            Text(L.Companion().greetings.hello())
+            Text("test")
+//            Text(greet())
+//            Text(L.Companion().greetings.hello())
         }
     }
 }
