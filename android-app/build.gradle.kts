@@ -19,16 +19,14 @@ repositories {
 
 kotlin {
     android()
-    ios {
-        binaries {
-            framework {
-                baseName = "shared"
-            }
+    listOf(
+        iosX64(),
+        iosArm64()
+        //iosSimulatorArm64() sure all ios dependencies support this target
+    ).forEach {
+        it.binaries.framework {
+            baseName = "shared"
         }
-    }
-
-    js {
-        browser()
     }
 
     sourceSets {
@@ -50,8 +48,20 @@ kotlin {
                 implementation("junit:junit:4.13")
             }
         }
-        val iosMain by getting
-        val iosTest by getting
+        val iosX64Main by getting
+        val iosArm64Main by getting
+        val iosMain by creating {
+            dependsOn(commonMain)
+            iosX64Main.dependsOn(this)
+            iosArm64Main.dependsOn(this)
+        }
+        val iosX64Test by getting
+        val iosArm64Test by getting
+        val iosTest by creating {
+            dependsOn(commonTest)
+            iosX64Test.dependsOn(this)
+            iosArm64Test.dependsOn(this)
+        }
     }
 }
 
@@ -105,7 +115,7 @@ plutil.dependsOn(generateLocalizations)
 //tasks["preBuild"].dependsOn(generateLocalizations)
 tasks["preBuild"].dependsOn(plutil)
 
-val packForXcode by tasks.creating(Sync::class) {
+/*val packForXcode by tasks.creating(Sync::class) {
     group = "build"
     val mode = System.getenv("CONFIGURATION") ?: "DEBUG"
     val sdkName = System.getenv("SDK_NAME") ?: "iphonesimulator"
@@ -128,7 +138,7 @@ val packForXcode by tasks.creating(Sync::class) {
             into("${targetDir}/shared.framework")
         }
     }
-}
+}*/
 
 tasks {
     /**
@@ -145,5 +155,29 @@ tasks {
     }
     named("compileKotlinIosX64") {
         dependsOn(plutil)
+    }
+
+    named("linkDebugFrameworkIosX64") {
+        doFirst {
+            val configuration = System.getenv("CONFIGURATION")
+            val sdkName = System.getenv("SDK_NAME")
+
+            copy {
+                from("${project.rootDir}/android-app/src/commonMain/resources/ios")
+                into("${project.buildDir}/xcode-frameworks/$configuration/$sdkName/shared.framework")
+            }
+        }
+    }
+
+    named("linkReleaseFrameworkIosX64") {
+        doFirst {
+            val configuration = System.getenv("CONFIGURATION")
+            val sdkName = System.getenv("SDK_NAME")
+
+            copy {
+                from("${project.rootDir}/shared/src/commonMain/resources/ios")
+                into("${project.buildDir}/xcode-frameworks/$configuration/$sdkName/shared.framework")
+            }
+        }
     }
 }
