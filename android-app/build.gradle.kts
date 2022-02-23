@@ -21,7 +21,8 @@ kotlin {
     android()
     listOf(
         iosX64(),
-        iosArm64()
+        iosArm64(),
+        iosSimulatorArm64()
         //iosSimulatorArm64() sure all ios dependencies support this target
     ).forEach {
         it.binaries.framework {
@@ -50,17 +51,21 @@ kotlin {
         }
         val iosX64Main by getting
         val iosArm64Main by getting
+        val iosSimulatorArm64Main by getting
         val iosMain by creating {
             dependsOn(commonMain)
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
+            iosSimulatorArm64Main.dependsOn(this)
         }
         val iosX64Test by getting
         val iosArm64Test by getting
+        val iosSimulatorArm64Test by getting
         val iosTest by creating {
             dependsOn(commonTest)
             iosX64Test.dependsOn(this)
             iosArm64Test.dependsOn(this)
+            iosSimulatorArm64Test.dependsOn(this)
         }
     }
 }
@@ -105,7 +110,7 @@ kmmResourcesConfig {
     input.set(File(project.projectDir.path, "generic.yaml"))
     output.set(project.projectDir)
     useDefaultTranslationIfNotInitialized.set(true)
-    iosSourceFolder.set("iosX64Main")
+    iosSourceFolder.set("iosMain")
 }
 
 val plutil = tasks["executePlutil"]
@@ -121,14 +126,62 @@ tasks {
      * are generated). If the generic.yaml file is not changed, the resources are considered
      * up to date by Gradle.
      */
-/*    named("compileKotlinIos32") {
-        dependsOn(plutil)
-    }*/
     named("compileKotlinIosArm64") {
         dependsOn(plutil)
     }
     named("compileKotlinIosX64") {
         dependsOn(plutil)
+    }
+    named("compileKotlinIosSimulatorArm64") {
+        dependsOn(plutil)
+    }
+
+    named("linkDebugFrameworkIosSimulatorArm64") {
+        doFirst {
+            val configuration = System.getenv("CONFIGURATION")
+            val sdkName = System.getenv("SDK_NAME")
+
+            copy {
+                from("${project.rootDir}/android-app/src/commonMain/resources/ios")
+                into("${project.buildDir}/xcode-frameworks/$configuration/$sdkName/shared.framework")
+            }
+        }
+    }
+
+    named("linkReleaseFrameworkIosSimulatorArm64") {
+        doFirst {
+            val configuration = System.getenv("CONFIGURATION")
+            val sdkName = System.getenv("SDK_NAME")
+
+            copy {
+                from("${project.rootDir}/android-app/src/commonMain/resources/ios")
+                into("${project.buildDir}/xcode-frameworks/$configuration/$sdkName/shared.framework")
+            }
+        }
+    }
+
+    named("linkDebugFrameworkIosArm64") {
+        doFirst {
+            val configuration = System.getenv("CONFIGURATION")
+            val sdkName = System.getenv("SDK_NAME")
+
+            copy {
+                from("${project.rootDir}/android-app/src/commonMain/resources/ios")
+                into("${project.buildDir}/xcode-frameworks/$configuration/$sdkName/shared.framework")
+            }
+        }
+    }
+
+    named("linkReleaseFrameworkIosArm64") {
+        doFirst {
+            val configuration = System.getenv("CONFIGURATION")
+            val sdkName = System.getenv("SDK_NAME")
+
+            copy {
+                from("${project.rootDir}/android-app/src/commonMain/resources/ios")
+                into("${project.buildDir}/xcode-frameworks/$configuration/$sdkName/shared.framework")
+            }
+        }
     }
 
     named("linkDebugFrameworkIosX64") {
