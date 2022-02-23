@@ -23,7 +23,6 @@ kotlin {
         iosX64(),
         iosArm64(),
         iosSimulatorArm64()
-        //iosSimulatorArm64() sure all ios dependencies support this target
     ).forEach {
         it.binaries.framework {
             baseName = "shared"
@@ -126,84 +125,33 @@ tasks {
      * are generated). If the generic.yaml file is not changed, the resources are considered
      * up to date by Gradle.
      */
-    named("compileKotlinIosArm64") {
-        dependsOn(plutil)
-    }
-    named("compileKotlinIosX64") {
-        dependsOn(plutil)
-    }
-    named("compileKotlinIosSimulatorArm64") {
-        dependsOn(plutil)
-    }
-
-    named("linkDebugFrameworkIosSimulatorArm64") {
-        doFirst {
-            val configuration = System.getenv("CONFIGURATION")
-            val sdkName = System.getenv("SDK_NAME")
-
-            copy {
-                from("${project.rootDir}/android-app/src/commonMain/resources/ios")
-                into("${project.buildDir}/xcode-frameworks/$configuration/$sdkName/shared.framework")
-            }
+    listOf(
+        "compileKotlinIosArm64",
+        "compileKotlinIosX64",
+        "compileKotlinIosSimulatorArm64"
+    ).forEach { taskName ->
+        named(taskName) {
+            dependsOn(plutil)
         }
     }
 
-    named("linkReleaseFrameworkIosSimulatorArm64") {
-        doFirst {
-            val configuration = System.getenv("CONFIGURATION")
-            val sdkName = System.getenv("SDK_NAME")
+    listOf(
+        "linkDebugFrameworkIosSimulatorArm64",
+        "linkReleaseFrameworkIosSimulatorArm64",
+        "linkDebugFrameworkIosArm64",
+        "linkReleaseFrameworkIosArm64",
+        "linkDebugFrameworkIosX64",
+        "linkReleaseFrameworkIosX64"
+    ).forEach { taskName ->
+        named(taskName) {
+            doFirst {
+                val configuration = System.getenv("CONFIGURATION")
+                val sdkName = System.getenv("SDK_NAME")
 
-            copy {
-                from("${project.rootDir}/android-app/src/commonMain/resources/ios")
-                into("${project.buildDir}/xcode-frameworks/$configuration/$sdkName/shared.framework")
-            }
-        }
-    }
-
-    named("linkDebugFrameworkIosArm64") {
-        doFirst {
-            val configuration = System.getenv("CONFIGURATION")
-            val sdkName = System.getenv("SDK_NAME")
-
-            copy {
-                from("${project.rootDir}/android-app/src/commonMain/resources/ios")
-                into("${project.buildDir}/xcode-frameworks/$configuration/$sdkName/shared.framework")
-            }
-        }
-    }
-
-    named("linkReleaseFrameworkIosArm64") {
-        doFirst {
-            val configuration = System.getenv("CONFIGURATION")
-            val sdkName = System.getenv("SDK_NAME")
-
-            copy {
-                from("${project.rootDir}/android-app/src/commonMain/resources/ios")
-                into("${project.buildDir}/xcode-frameworks/$configuration/$sdkName/shared.framework")
-            }
-        }
-    }
-
-    named("linkDebugFrameworkIosX64") {
-        doFirst {
-            val configuration = System.getenv("CONFIGURATION")
-            val sdkName = System.getenv("SDK_NAME")
-
-            copy {
-                from("${project.rootDir}/android-app/src/commonMain/resources/ios")
-                into("${project.buildDir}/xcode-frameworks/$configuration/$sdkName/shared.framework")
-            }
-        }
-    }
-
-    named("linkReleaseFrameworkIosX64") {
-        doFirst {
-            val configuration = System.getenv("CONFIGURATION")
-            val sdkName = System.getenv("SDK_NAME")
-
-            copy {
-                from("${project.rootDir}/shared/src/commonMain/resources/ios")
-                into("${project.buildDir}/xcode-frameworks/$configuration/$sdkName/shared.framework")
+                copy {
+                    from("${project.rootDir}/android-app/src/commonMain/resources/ios")
+                    into("${project.buildDir}/xcode-frameworks/$configuration/$sdkName/shared.framework")
+                }
             }
         }
     }
