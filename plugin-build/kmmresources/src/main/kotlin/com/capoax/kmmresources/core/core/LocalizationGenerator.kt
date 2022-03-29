@@ -10,28 +10,39 @@ class LocalizationGenerator(
     val output: File,
     val androidApplicationId: String,
     val defaultLanguage: String = "en",
-    val androidSourceFolder: String = "main",
+    val androidSourceFolder: String = "androidMain",
     val iosSourceFolder: String = "iosMain",
     val packageName: String?,
     val androidStringsPrefix: String = "generated_",
     val srcFolder: String = "src",
     val generatedClassName: String = "KMMResourcesLocalization.kt",
-    private val useDefaultTranslationIfNotInitialized: Boolean) {
+    private val useDefaultTranslationIfNotInitialized: Boolean
+) {
 
     private val iosLocaleRegex = Regex("-r")
 
-    val commonSrc: File get() = {
-        val src = output.resolve(srcFolder)
-        Files.createDirectories(src.toPath())
-        src
-    }()
+    val commonSrc: File
+        get() = {
+            val src = output.resolve(srcFolder)
+            Files.createDirectories(src.toPath())
+            src
+        }()
 
     fun generate() {
         val contents = YamlParser(input).parse()
-        val commonGenerated = CommonGenerator(contents, androidApplicationId, packageName, defaultLanguage, useDefaultTranslationIfNotInitialized).generate()
+        val commonGenerated = CommonGenerator(
+            contents,
+            androidApplicationId,
+            packageName,
+            defaultLanguage,
+            useDefaultTranslationIfNotInitialized
+        ).generate()
         writeCommon(commonGenerated.generated)
         if (commonGenerated.androidPlatformGenerator.generatedActual.writeTo(androidSourceFolder)) {
-            writeAndroidResources(commonGenerated.androidPlatformGenerator.generated, androidSourceFolder)
+            writeAndroidResources(
+                commonGenerated.androidPlatformGenerator.generated,
+                androidSourceFolder
+            )
         }
         if (commonGenerated.iOSPlatformGenerator.generatedActual.writeTo(iosSourceFolder)) {
             writeIOSResources(commonGenerated.iOSPlatformGenerator.generated)
@@ -42,7 +53,7 @@ class LocalizationGenerator(
         }
     }
 
-    private fun writeCommon(contents: String) = contents.writeTo("common")
+    private fun writeCommon(contents: String) = contents.writeTo("commonMain")
 
     private fun writeIOSResources(contents: Map<String, String>) {
         val commonMainFolder = commonSrc.resolve("commonMain").resolve("resources").resolve("ios")
@@ -74,9 +85,9 @@ class LocalizationGenerator(
         }
     }
 
-    private fun writeJVM(contents: String) = contents.writeTo("jvm")
+    private fun writeJVM(contents: String) = contents.writeTo("jvmMain")
 
-    private fun writeJS(contents: String) = contents.writeTo("js")
+    private fun writeJS(contents: String) = contents.writeTo("jsMain")
 
     private fun writeJSResources(contents: Map<String, String>) {
         var mainFolder = commonSrc.resolve("jsMain").resolve("kotlin")
@@ -94,16 +105,9 @@ class LocalizationGenerator(
     }
 
     private fun String.writeTo(target: String? = null): Boolean {
-        val resolvedTarget = when  {
-            target == "main" -> ""
-            target?.endsWith("Main") == true -> target.replace("Main", "")
-            else -> target
-        }
-        val mainFolder = commonSrc.resolve(resolvedTarget?.let { "${it}Main" } ?: "main")
-        if (!mainFolder.exists()) {
-            println("Skip generation of $target since $mainFolder does not exist")
-            return false
-        }
+        val mainFolder = commonSrc.resolve(target ?: "main")
+        Files.createDirectories(mainFolder.toPath())
+
         var mainSourceFolder = mainFolder.resolve("kotlin")
         packageName?.split('.')?.forEach { subfolder ->
             mainSourceFolder = mainSourceFolder.resolve(subfolder)
