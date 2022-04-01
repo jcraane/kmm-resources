@@ -4,11 +4,15 @@ Generator including Gradle plugin to generate KMM (Kotlin Multiplatform Mobile) 
 
 Although this plugin generates resources for both Android, iOS and Web, it is not mandatory to have both an Android, iOS or Web application present. For example, the Android app can be developed first using Kotlin Multiplatform Mobile and kmm-resources to which an iOS app is added later.
 
-## Upgrading
+## Upgrading/release
 
 ### Upgrade to alpha08
 
 - As of version alpha08 the ' (single quote) does not need to be escaped in the yaml anymore. When updating to version alpha08 replace ```\'``` in your yaml file with ```'``` (single quote without escaping)**
+
+### 1.0.0-alpha10
+
+- -Files can now be written to every defined path instead of paths only ending with *Main
 
 ## Prerequisites
 
@@ -24,7 +28,7 @@ Add the following plugin definition to start using the plugin:
 
 ```kotlin
 plugins {
-  id "dev.jamiecraane.plugins.kmmresources" version "1.0.0-alpha09"
+  id "dev.jamiecraane.plugins.kmmresources" version "1.0.0-alpha10"
 }
 ```
 
@@ -54,7 +58,7 @@ Apply the plugin:
 
 ```kotlin
 plugins {
-    id("dev.jamiecraane.plugins.kmmresources") version "1.0.0-alpha09"
+    id("dev.jamiecraane.plugins.kmmresources") version "1.0.0-alpha10"
 }
 ```
 
