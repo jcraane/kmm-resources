@@ -1,5 +1,7 @@
 package com.capoax.kmmresources.core
 
+import com.capoax.kmmresources.extensions.isMultiline
+
 data class JVMPlatformGenerator(
         private val packageDeclaration: String?,
         override val generated: MutableMap<String, String> = mutableMapOf(),
@@ -10,8 +12,11 @@ data class JVMPlatformGenerator(
     }
 
     override fun generateActual(function: String, path: List<String>, name: String, numberOfArguments: Int, defaultTranslation: String) {
-        generatedActual += "actual fun ${function}: String = \"\"\n"
+        val stringDelimeter = getStringDelimeter(defaultTranslation)
+        generatedActual += "actual fun ${function}: String = $stringDelimeter$defaultTranslation$stringDelimeter\n"
     }
+
+    private fun getStringDelimeter(defaultTranslation: String) = if (defaultTranslation.isMultiline()) "\"\"\"" else "\""
 
     override fun generateActualList(function: String, path: List<String>, name: String, values: List<Map<String, String>>, defaultLanguage: String) {
         generatedActual += "actual fun ${function}: List<String> = emptyList()\n"
