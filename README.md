@@ -103,6 +103,8 @@ Make sure the custom MyApplication is registered in the manifest.
 
 #### Configure for iOS
 
+Make sure to use the `embedAndSignAppleFrameworkForXcode` task when building from Xcode (see https://blog.jetbrains.com/kotlin/2021/07/multiplatform-gradle-plugin-improved-for-connecting-kmm-modules/). 
+
 Configure the plugin for iOS (add the compileKotlinIos* based on the targets that the app supports):
 
 ```kotlin
