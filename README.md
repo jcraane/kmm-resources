@@ -103,6 +103,8 @@ Make sure the custom MyApplication is registered in the manifest.
 
 #### Configure for iOS
 
+Make sure to use the `embedAndSignAppleFrameworkForXcode` task when building from Xcode (see https://blog.jetbrains.com/kotlin/2021/07/multiplatform-gradle-plugin-improved-for-connecting-kmm-modules/). 
+
 Configure the plugin for iOS (add the compileKotlinIos* based on the targets that the app supports):
 
 ```kotlin
@@ -114,43 +116,27 @@ tasks {
      * up to date by Gradle.
 
  */
-    named("compileKotlinIos32") {
-        dependsOn(plutil)
-    }
-    named("compileKotlinIos64") {
-        dependsOn(plutil)
-    }
-    named("compileKotlinIosX64") {
-        dependsOn(plutil)
+    listOf(
+        "compileKotlinIosArm64",
+        "compileKotlinIosX64",
+        "compileKotlinIosSimulatorArm64"
+    ).forEach { taskName ->
+        named(taskName) {
+            dependsOn(plutil, generateImages)
+        }
     }
 }
 ```
 
-To copy the generated resources into the framework modify the packForXCode task:
+To copy the generated resources into the framework add the following to your build file as well:
 
 ```kotlin
-val packForXcode by tasks.creating(Sync::class) {
-    group = "build"
-    val mode = System.getenv("CONFIGURATION") ?: "DEBUG"
-    val sdkName = System.getenv("SDK_NAME") ?: "iphonesimulator"
-    val targetName = "ios" + if (sdkName.startsWith("iphoneos")) "Arm64" else "X64"
-    val framework = kotlin.targets.getByName<KotlinNativeTarget>(targetName).binaries.getFramework(mode)
-    inputs.property("mode", mode)
-    dependsOn(framework.linkTask)
-    val targetDir = findProperty("configuration.build.dir")
-    println("targetDir = $targetDir")
-    if (targetDir == null) {
-        System.err.println("configuration.build.dir is not defined. Please pass this property from the XCode build.")
-    }
-    from({ framework.outputDirectory })
-    into(targetDir)
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinNativeLink>().configureEach {
+    if (outputKind != org.jetbrains.kotlin.konan.target.CompilerOutputKind.FRAMEWORK) return@configureEach
+    val iosResources = project.layout.buildDirectory.dir("src/commonMain/resources/ios")
 
-//    This is added to the packForXCode task. commonMain/resources/ios is the location of the gemerated Localizable.strings files.
     doLast {
-        copy {
-            from("${project.rootDir}/android-app/src/commonMain/resources/ios")
-            into("${targetDir}/shared.framework")
-        }
+        iosResources.get().asFile.copyRecursively(outputFile.get(), true)
     }
 }
 ```
